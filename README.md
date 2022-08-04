@@ -18,7 +18,7 @@ The output is in the `overworld_dump.sql` file in the current working directory.
 
 ### Container usage
 
-In the docker-compose file there is a section similar to this:
+In the docker-compose files there is always a section similar to this:
 
 ```yaml
   setup:
