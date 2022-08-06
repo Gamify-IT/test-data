@@ -11,7 +11,7 @@ SQL dumps are files containing the SQL to restore a specific database state.
 You can create a database dump by running the following command (replace overworld with the name of the database you want to dump):
 
 ```bash
-docker exec overworld-db pg_dumpall --username postgres > overworld_dump.sql
+docker exec overworld-db pg_dump --username postgres postgres > overworld_dump.sql
 ```
 
 The output is in the `overworld_dump.sql` file in the current working directory.
