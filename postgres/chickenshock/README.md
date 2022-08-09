@@ -2,6 +2,6 @@
 
 ## default.sql
 
-| configuration id                     | description                                                   |
-|--------------------------------------|---------------------------------------------------------------|
-| a8e1daea-6bab-4cf0-83d4-f2cf6ba95200 | 7 simple mathematical questions (different number of answers) |
+| configuration id                       | description                                                 |
+|----------------------------------------|-------------------------------------------------------------|
+| `f0d9bdea-46cc-478d-9b52-e07dcad95bf3` | simple mathematical questions (different number of answers) |
