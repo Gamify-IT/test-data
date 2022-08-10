@@ -31,7 +31,7 @@ CREATE TABLE public.area (
     index integer NOT NULL,
     static_name character varying(255),
     topic_name character varying(255),
-    lecture_id integer,
+    course_id integer,
     world_id uuid
 );
 
@@ -89,29 +89,29 @@ CREATE SEQUENCE public.hibernate_sequence
 ALTER TABLE public.hibernate_sequence OWNER TO postgres;
 
 --
--- Name: lecture; Type: TABLE; Schema: public; Owner: postgres
+-- Name: course; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.lecture (
+CREATE TABLE public.course (
     id integer NOT NULL,
     description character varying(255),
-    lecture_name character varying(255)
+    course_name character varying(255)
 );
 
 
-ALTER TABLE public.lecture OWNER TO postgres;
+ALTER TABLE public.course OWNER TO postgres;
 
 --
--- Name: lecture_worlds; Type: TABLE; Schema: public; Owner: postgres
+-- Name: course_worlds; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.lecture_worlds (
-    lecture_id integer NOT NULL,
+CREATE TABLE public.course_worlds (
+    course_id integer NOT NULL,
     worlds_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.lecture_worlds OWNER TO postgres;
+ALTER TABLE public.course_worlds OWNER TO postgres;
 
 --
 -- Name: minigame_task; Type: TABLE; Schema: public; Owner: postgres
@@ -123,7 +123,7 @@ CREATE TABLE public.minigame_task (
     game character varying(255),
     index integer NOT NULL,
     area_id uuid,
-    lecture_id integer
+    course_id integer
 );
 
 
@@ -138,7 +138,7 @@ CREATE TABLE public.npc (
     index integer NOT NULL,
     text character varying(255),
     area_id uuid,
-    lecture_id integer
+    course_id integer
 );
 
 
@@ -154,7 +154,7 @@ CREATE TABLE public.player_statistic (
     user_id character varying(255),
     username character varying(255),
     current_area_id uuid,
-    lecture_id integer
+    course_id integer
 );
 
 
@@ -196,7 +196,7 @@ CREATE TABLE public.player_task_action_log (
     gained_knowledge bigint NOT NULL,
     game character varying(255),
     score bigint NOT NULL,
-    lecture_id integer,
+    course_id integer,
     player_task_statistic_id uuid
 );
 
@@ -211,7 +211,7 @@ CREATE TABLE public.player_task_statistic (
     id uuid NOT NULL,
     completed boolean NOT NULL,
     highscore bigint NOT NULL,
-    lecture_id integer,
+    course_id integer,
     minigame_task_id uuid,
     player_statistic_id uuid
 );
@@ -227,7 +227,7 @@ CREATE TABLE public.playernpcaction_log (
     id uuid NOT NULL,
     date timestamp without time zone,
     gained_knowledge bigint NOT NULL,
-    lecture_id integer,
+    course_id integer,
     playernpcstatistic_id uuid
 );
 
@@ -241,7 +241,7 @@ ALTER TABLE public.playernpcaction_log OWNER TO postgres;
 CREATE TABLE public.playernpcstatistic (
     id uuid NOT NULL,
     completed boolean NOT NULL,
-    lecture_id integer,
+    course_id integer,
     npc_id uuid,
     player_statistic_id uuid
 );
@@ -253,7 +253,7 @@ ALTER TABLE public.playernpcstatistic OWNER TO postgres;
 -- Data for Name: area; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.area (dtype, id, active, index, static_name, topic_name, lecture_id, world_id) FROM stdin;
+COPY public.area (dtype, id, active, index, static_name, topic_name, course_id, world_id) FROM stdin;
 World	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	f	1	Blooming Savanna		1	\N
 Dungeon	95092436-f1ab-45f9-8c0d-2392b3772f88	f	1	dungeon1		1	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b
 Dungeon	80192db0-f357-4120-834f-bc126144f70d	f	2	dungeon2		1	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b
@@ -6834,10 +6834,10 @@ fdf7b6e9-f68e-450e-9500-6755bd76db64	6a8042c1-0184-4e48-807e-c4234c9ad1d4
 
 
 --
--- Data for Name: lecture; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: course; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.lecture (id, description, lecture_name) FROM stdin;
+COPY public.course (id, description, course_name) FROM stdin;
 1	\N	dummy
 2	\N	dummy
 3	\N	dummy
@@ -6856,10 +6856,10 @@ COPY public.lecture (id, description, lecture_name) FROM stdin;
 
 
 --
--- Data for Name: lecture_worlds; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: course_worlds; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.lecture_worlds (lecture_id, worlds_id) FROM stdin;
+COPY public.course_worlds (course_id, worlds_id) FROM stdin;
 1	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b
 1	9a8ffdeb-cd59-4299-8fbf-71e38459a79d
 1	1845aed5-eb88-45ee-8df0-ad505d8ecd33
@@ -6923,7 +6923,7 @@ COPY public.lecture_worlds (lecture_id, worlds_id) FROM stdin;
 -- Data for Name: minigame_task; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.minigame_task (id, configuration_id, game, index, area_id, lecture_id) FROM stdin;
+COPY public.minigame_task (id, configuration_id, game, index, area_id, course_id) FROM stdin;
 a95aea3c-2b61-45b0-b96c-d8ce14fa6bf8	\N	\N	7	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
 28f24724-9b16-4a8d-b7bd-b855c81c01e3	\N	\N	6	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
 a1e26169-74ac-49c7-a8f2-ef8379cf2afe	\N	\N	8	04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
@@ -10235,7 +10235,7 @@ d0e1cfcd-e491-4740-b0ad-80e7f59754e9	\N	\N	5	37492e35-ef09-4c18-87cf-aabaeb92678
 -- Data for Name: npc; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.npc (id, index, text, area_id, lecture_id) FROM stdin;
+COPY public.npc (id, index, text, area_id, course_id) FROM stdin;
 d4369213-5cb0-4d85-b289-e9a3b7a1b4aa	8		04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
 2db6d004-3469-436c-b5c3-bbe6d6342c2f	4		04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
 757e3d18-8a2d-4000-b3ae-aae70bfbd7a9	5		04a5ffe4-7c6f-498c-bc62-63bd8e0af12b	1
@@ -12987,7 +12987,7 @@ ccf7e95e-f33b-46aa-8062-f6c149740d69	1		37492e35-ef09-4c18-87cf-aabaeb92678e	14
 -- Data for Name: player_statistic; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.player_statistic (id, knowledge, user_id, username, current_area_id, lecture_id) FROM stdin;
+COPY public.player_statistic (id, knowledge, user_id, username, current_area_id, course_id) FROM stdin;
 0dd7c785-1167-4c69-9856-7ad2d201f248	400	1	Maik	72da1635-5c1f-4f44-a17b-7476a50a19b9	13
 \.
 
@@ -13013,7 +13013,7 @@ COPY public.player_statistic_unlocked_areas (player_statistic_id, unlocked_areas
 -- Data for Name: player_task_action_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.player_task_action_log (id, configuration_id, current_highscore, date, gained_knowledge, game, score, lecture_id, player_task_statistic_id) FROM stdin;
+COPY public.player_task_action_log (id, configuration_id, current_highscore, date, gained_knowledge, game, score, course_id, player_task_statistic_id) FROM stdin;
 f28d8aec-193d-4184-b376-b3bd9d2de6a5	795576ed-6203-4ee6-90ab-e48edc865b55	100	2022-07-28 17:20:34.058	100	moorhuhn	100	13	f62cd8ba-4e82-4f46-bab2-154de73fa088
 5426ae86-c2b7-4417-8370-2dbc5e4a7636	d5c92cf2-0e3d-4b47-926c-6e3db17a5372	0	2022-07-28 17:20:37.833	0	kein game	0	13	9e860418-0f82-42a0-a7b0-764b48ec02e7
 \.
@@ -13023,7 +13023,7 @@ f28d8aec-193d-4184-b376-b3bd9d2de6a5	795576ed-6203-4ee6-90ab-e48edc865b55	100	20
 -- Data for Name: player_task_statistic; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.player_task_statistic (id, completed, highscore, lecture_id, minigame_task_id, player_statistic_id) FROM stdin;
+COPY public.player_task_statistic (id, completed, highscore, course_id, minigame_task_id, player_statistic_id) FROM stdin;
 f62cd8ba-4e82-4f46-bab2-154de73fa088	t	100	13	ebaab16d-7021-4154-bffe-bedd77b1203b	0dd7c785-1167-4c69-9856-7ad2d201f248
 9e860418-0f82-42a0-a7b0-764b48ec02e7	f	0	13	f2d48609-a9aa-4d6a-92d1-0140e51a6f67	0dd7c785-1167-4c69-9856-7ad2d201f248
 \.
@@ -13033,7 +13033,7 @@ f62cd8ba-4e82-4f46-bab2-154de73fa088	t	100	13	ebaab16d-7021-4154-bffe-bedd77b120
 -- Data for Name: playernpcaction_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.playernpcaction_log (id, date, gained_knowledge, lecture_id, playernpcstatistic_id) FROM stdin;
+COPY public.playernpcaction_log (id, date, gained_knowledge, course_id, playernpcstatistic_id) FROM stdin;
 ca0c560f-386e-4252-929e-ed96d590aad3	2022-07-28 17:29:56.887	100	13	93a293ad-6b63-41a8-8fd7-f2c7a8b50be2
 5defb9be-432e-4798-9d82-2e29367e5f66	2022-07-28 17:30:19.86	100	13	fb5dcd8b-1ac2-414a-8878-ce6ac98486bf
 8f6e8f7a-97be-4c43-b017-2bc48adba3d6	2022-07-28 17:30:36.076	0	13	93a293ad-6b63-41a8-8fd7-f2c7a8b50be2
@@ -13045,7 +13045,7 @@ ca0c560f-386e-4252-929e-ed96d590aad3	2022-07-28 17:29:56.887	100	13	93a293ad-6b6
 -- Data for Name: playernpcstatistic; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.playernpcstatistic (id, completed, lecture_id, npc_id, player_statistic_id) FROM stdin;
+COPY public.playernpcstatistic (id, completed, course_id, npc_id, player_statistic_id) FROM stdin;
 93a293ad-6b63-41a8-8fd7-f2c7a8b50be2	t	13	037df578-2e3f-4145-808b-460d295a817c	0dd7c785-1167-4c69-9856-7ad2d201f248
 fb5dcd8b-1ac2-414a-8878-ce6ac98486bf	f	13	1ae832ab-2abd-4d96-bf74-8fddde4b56bf	0dd7c785-1167-4c69-9856-7ad2d201f248
 1a85325e-364c-4015-b2e9-cb6648c28656	f	13	cc9372cf-cf5d-4f22-b8ef-3a01b3cecd4f	0dd7c785-1167-4c69-9856-7ad2d201f248
@@ -13084,11 +13084,11 @@ ALTER TABLE ONLY public.area
 
 
 --
--- Name: lecture lecture_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: course course_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.lecture
-    ADD CONSTRAINT lecture_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.course
+    ADD CONSTRAINT course_pkey PRIMARY KEY (id);
 
 
 --
@@ -13172,10 +13172,10 @@ ALTER TABLE ONLY public.area_minigame_tasks
 
 
 --
--- Name: lecture_worlds uk_sbyxdumeowxkco1r93yosxyup; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: course_worlds uk_sbyxdumeowxkco1r93yosxyup; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.lecture_worlds
+ALTER TABLE ONLY public.course_worlds
     ADD CONSTRAINT uk_sbyxdumeowxkco1r93yosxyup UNIQUE (worlds_id);
 
 
@@ -13184,7 +13184,7 @@ ALTER TABLE ONLY public.lecture_worlds
 --
 
 ALTER TABLE ONLY public.minigame_task
-    ADD CONSTRAINT ukoa57wnc3u0tngxotdaxu3ajqo UNIQUE (index, area_id, lecture_id);
+    ADD CONSTRAINT ukoa57wnc3u0tngxotdaxu3ajqo UNIQUE (index, area_id, course_id);
 
 
 --
@@ -13192,7 +13192,7 @@ ALTER TABLE ONLY public.minigame_task
 --
 
 ALTER TABLE ONLY public.npc
-    ADD CONSTRAINT ukphtnrrbg1iiaro1l9ckxl0ef6 UNIQUE (index, area_id, lecture_id);
+    ADD CONSTRAINT ukphtnrrbg1iiaro1l9ckxl0ef6 UNIQUE (index, area_id, course_id);
 
 
 --
@@ -13240,7 +13240,7 @@ ALTER TABLE ONLY public.area_dungeons
 --
 
 ALTER TABLE ONLY public.player_task_statistic
-    ADD CONSTRAINT fk4jov2h8n5o5s5611epxuf8edx FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fk4jov2h8n5o5s5611epxuf8edx FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13268,11 +13268,11 @@ ALTER TABLE ONLY public.playernpcstatistic
 
 
 --
--- Name: lecture_worlds fk9qync7i26fpt1jkq3o5i6fhqg; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: course_worlds fk9qync7i26fpt1jkq3o5i6fhqg; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.lecture_worlds
-    ADD CONSTRAINT fk9qync7i26fpt1jkq3o5i6fhqg FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+ALTER TABLE ONLY public.course_worlds
+    ADD CONSTRAINT fk9qync7i26fpt1jkq3o5i6fhqg FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13312,7 +13312,7 @@ ALTER TABLE ONLY public.player_statistic_unlocked_areas
 --
 
 ALTER TABLE ONLY public.playernpcaction_log
-    ADD CONSTRAINT fkcw6bdkvs5i6057go5ac8qfo8f FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fkcw6bdkvs5i6057go5ac8qfo8f FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13328,7 +13328,7 @@ ALTER TABLE ONLY public.player_task_action_log
 --
 
 ALTER TABLE ONLY public.playernpcstatistic
-    ADD CONSTRAINT fkh0xnd0iil4pq8hydw4v9yjxoi FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fkh0xnd0iil4pq8hydw4v9yjxoi FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13336,7 +13336,7 @@ ALTER TABLE ONLY public.playernpcstatistic
 --
 
 ALTER TABLE ONLY public.minigame_task
-    ADD CONSTRAINT fkhl39s9wr455y3rqmv74ybo6nw FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fkhl39s9wr455y3rqmv74ybo6nw FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13352,7 +13352,7 @@ ALTER TABLE ONLY public.player_statistic
 --
 
 ALTER TABLE ONLY public.area
-    ADD CONSTRAINT fkjrmb6mj8trvn9s32n5gdlo6g FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fkjrmb6mj8trvn9s32n5gdlo6g FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13368,7 +13368,7 @@ ALTER TABLE ONLY public.area_npcs
 --
 
 ALTER TABLE ONLY public.npc
-    ADD CONSTRAINT fkkfays5j98j1hyx8hq2r0q20qr FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fkkfays5j98j1hyx8hq2r0q20qr FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13392,7 +13392,7 @@ ALTER TABLE ONLY public.area_dungeons
 --
 
 ALTER TABLE ONLY public.player_statistic
-    ADD CONSTRAINT fknsxca1jp9buc4ne501kjbqrlk FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fknsxca1jp9buc4ne501kjbqrlk FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -13404,10 +13404,10 @@ ALTER TABLE ONLY public.area
 
 
 --
--- Name: lecture_worlds fkq4jie4nygo69hahqr5jd5vg9c; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: course_worlds fkq4jie4nygo69hahqr5jd5vg9c; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.lecture_worlds
+ALTER TABLE ONLY public.course_worlds
     ADD CONSTRAINT fkq4jie4nygo69hahqr5jd5vg9c FOREIGN KEY (worlds_id) REFERENCES public.area(id);
 
 
@@ -13432,7 +13432,7 @@ ALTER TABLE ONLY public.area_npcs
 --
 
 ALTER TABLE ONLY public.player_task_action_log
-    ADD CONSTRAINT fks4c7eitqe2m1dj0b9iina5smd FOREIGN KEY (lecture_id) REFERENCES public.lecture(id);
+    ADD CONSTRAINT fks4c7eitqe2m1dj0b9iina5smd FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
