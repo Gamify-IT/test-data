@@ -1,7 +1,8 @@
 # Crosswordpuzzle database configuration
 
 ## default.sql
-contains two simple crosswordpuzzles
+
+Contains two simple crosswordpuzzles
 
 | configuration id                     | description       |
 |--------------------------------------|-------------------|
