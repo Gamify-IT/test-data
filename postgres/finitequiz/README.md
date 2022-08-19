@@ -1,4 +1,4 @@
-# Single-choice database configurations
+# Finite-quiz database configurations
 
 ## default.sql
 
