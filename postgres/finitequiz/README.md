@@ -4,4 +4,4 @@
 
 | configuration id                       | description                                                 |
 |----------------------------------------|-------------------------------------------------------------|
-| `70fcd00c-b67c-46f2-be73-961dc0bc8de1` | simple mathematical questions (different number of answers) |
+| `98a66aed-6d0e-4966-80f4-053cbb93fd54` | simple mathematical questions (different number of answers) |
