@@ -50,16 +50,10 @@ ALTER TABLE public.configuration_questions OWNER TO postgres;
 CREATE TABLE public.game_result (
     id bigint NOT NULL,
     configuration_asuuid uuid,
-    correct_kills_count integer NOT NULL,
-    finished_in_seconds real NOT NULL,
-    kills_count integer NOT NULL,
     played_time timestamp without time zone,
     player_id character varying(255),
-    points integer NOT NULL,
     question_count integer NOT NULL,
-    shot_count integer NOT NULL,
-    time_limit real NOT NULL,
-    wrong_kills_count integer NOT NULL
+    score real NOT NULL
 );
 
 
@@ -146,7 +140,7 @@ ALTER TABLE public.round_result OWNER TO postgres;
 --
 
 COPY public.configuration (id) FROM stdin;
-70fcd00c-b67c-46f2-be73-961dc0bc8de1
+98a66aed-6d0e-4966-80f4-053cbb93fd54
 \.
 
 
@@ -155,12 +149,12 @@ COPY public.configuration (id) FROM stdin;
 --
 
 COPY public.configuration_questions (configuration_id, questions_id) FROM stdin;
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	cac917ea-c4c2-461e-92db-7a5497cd70e4
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	a3c83db6-b224-41d3-a7f9-a56befa6e1e3
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	89fc0ef6-5ccc-497f-b838-8feea770db29
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	83148f4b-2d7f-4c73-b5fe-51a002ef8473
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	1b65c09d-4b2f-4bce-a76f-48e08ab57cd9
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	f51b53aa-985a-4081-9db2-faf502338376
+98a66aed-6d0e-4966-80f4-053cbb93fd54	c67595ef-f4d5-4c63-9f1b-d7c440f5d9f6
+98a66aed-6d0e-4966-80f4-053cbb93fd54	3135a82a-bbbd-4c1e-bd3a-4bb7242aa123
+98a66aed-6d0e-4966-80f4-053cbb93fd54	8857aa03-877e-421b-b9cf-6289ecef2b1e
+98a66aed-6d0e-4966-80f4-053cbb93fd54	76f39cc1-5054-4742-a7b0-f044b3f65145
+98a66aed-6d0e-4966-80f4-053cbb93fd54	6eb60d72-31a9-40db-9140-6effabfb9629
+98a66aed-6d0e-4966-80f4-053cbb93fd54	6438b1a5-5c6b-4f32-8ff2-f418584e6641
 \.
 
 
@@ -168,7 +162,7 @@ COPY public.configuration_questions (configuration_id, questions_id) FROM stdin;
 -- Data for Name: game_result; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.game_result (id, configuration_asuuid, correct_kills_count, finished_in_seconds, kills_count, played_time, player_id, points, question_count, shot_count, time_limit, wrong_kills_count) FROM stdin;
+COPY public.game_result (id, configuration_asuuid, played_time, player_id, question_count, score) FROM stdin;
 \.
 
 
@@ -193,12 +187,12 @@ COPY public.game_result_wrong_answered_questions (game_result_id, wrong_answered
 --
 
 COPY public.question (id, right_answer, text) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	6	1 + 5
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	7	1 + 6
-89fc0ef6-5ccc-497f-b838-8feea770db29	x = 2	x + 2 = 4
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	3	9 / 3
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	110	88 + 22
-f51b53aa-985a-4081-9db2-faf502338376	6	2*3
+c67595ef-f4d5-4c63-9f1b-d7c440f5d9f6	6	1 + 5
+3135a82a-bbbd-4c1e-bd3a-4bb7242aa123	7	1 + 6
+8857aa03-877e-421b-b9cf-6289ecef2b1e	x = 2	x + 2 = 4
+76f39cc1-5054-4742-a7b0-f044b3f65145	3	9 / 3
+6eb60d72-31a9-40db-9140-6effabfb9629	110	88 + 22
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	6	2*3
 \.
 
 
@@ -207,20 +201,20 @@ f51b53aa-985a-4081-9db2-faf502338376	6	2*3
 --
 
 COPY public.question_wrong_answers (question_id, wrong_answers) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	1
-cac917ea-c4c2-461e-92db-7a5497cd70e4	2
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	8
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	9
-89fc0ef6-5ccc-497f-b838-8feea770db29	x = 4
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	6
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	100
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	130
-f51b53aa-985a-4081-9db2-faf502338376	34
-f51b53aa-985a-4081-9db2-faf502338376	23
-f51b53aa-985a-4081-9db2-faf502338376	4
-f51b53aa-985a-4081-9db2-faf502338376	5
-f51b53aa-985a-4081-9db2-faf502338376	7
-f51b53aa-985a-4081-9db2-faf502338376	3465
+c67595ef-f4d5-4c63-9f1b-d7c440f5d9f6	1
+c67595ef-f4d5-4c63-9f1b-d7c440f5d9f6	2
+3135a82a-bbbd-4c1e-bd3a-4bb7242aa123	8
+3135a82a-bbbd-4c1e-bd3a-4bb7242aa123	9
+8857aa03-877e-421b-b9cf-6289ecef2b1e	x = 4
+76f39cc1-5054-4742-a7b0-f044b3f65145	6
+6eb60d72-31a9-40db-9140-6effabfb9629	100
+6eb60d72-31a9-40db-9140-6effabfb9629	130
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	34
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	23
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	4
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	5
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	7
+6438b1a5-5c6b-4f32-8ff2-f418584e6641	3465
 \.
 
 
