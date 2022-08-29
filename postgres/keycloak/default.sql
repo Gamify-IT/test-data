@@ -1664,7 +1664,7 @@ cb8e206d-aed8-4b85-9cea-9bc7406a935c	t	f	account	0	t	\N	/realms/Gamify-IT/accoun
 df8f2cb2-62da-4d73-88a8-7a540b093cc6	t	f	broker	0	f	\N	\N	t	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_broker}	f	client-secret	\N	\N	\N	t	f	f	f
 740be63d-cd29-4660-892e-12ad842087d8	t	f	security-admin-console	0	t	\N	/admin/Gamify-IT/console/	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_security-admin-console}	f	client-secret	${authAdminUrl}	\N	\N	t	f	f	f
 8082411c-4141-4356-9a32-02ca2d393c64	t	f	admin-cli	0	t	\N	\N	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_admin-cli}	f	client-secret	\N	\N	\N	f	f	t	f
-8fb05d82-5c4d-40f3-9bb3-8439e9612224	t	t	game	0	t	\N	http://localhost/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f	Client for the Gamify-IT game login	f	client-secret			\N	t	f	f	f
+8fb05d82-5c4d-40f3-9bb3-8439e9612224	t	t	game	0	t	\N	/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f	Client for the Gamify-IT game login	f	client-secret			\N	t	f	f	f
 \.
 
 
@@ -1917,7 +1917,6 @@ eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 740be63d-cd29-4660-892e-12ad842087d8	1edf3b1e-fd4f-465b-8207-9242139b806f	f
 740be63d-cd29-4660-892e-12ad842087d8	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	035ff955-1590-4737-846e-8d279c463d6f	t
-8fb05d82-5c4d-40f3-9bb3-8439e9612224	752e8de6-366f-4545-8a08-b11d1ae514f2	t
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	0e112aba-7593-4cb2-8e0b-c50683d92061	t
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	0693ee26-b2ed-4ed5-a8de-ebf41fd9b78b	t
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	def1ebe5-93f9-4f98-838e-4976aac26672	t
@@ -1925,6 +1924,7 @@ eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	a0d7dfad-6ae2-41c9-b5e1-3d9dcd707589	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	1edf3b1e-fd4f-465b-8207-9242139b806f	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
+8fb05d82-5c4d-40f3-9bb3-8439e9612224	752e8de6-366f-4545-8a08-b11d1ae514f2	t
 \.
 
 
@@ -2192,6 +2192,7 @@ COPY public.credential (id, salt, type, user_id, created_date, user_label, secre
 7652b556-6cf6-485b-b7fd-f019128da8c1	\N	password	bbf1942a-aa33-486f-872f-80658bf9d274	1661607810460	\N	{"value":"HMVcLseZnWk4lgA8l3FsoCUBvQKEy5rPDW60IF1Tc5lhJrOz+YBLWzkMbXyDa4NbGmmqcL0regXeEZf1X1kcMg==","salt":"lsT4iBrBxlB15cWHhsa4Kg==","additionalParameters":{}}	{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}	10
 46727e77-79d7-4da3-bea4-ff96f0958a5c	\N	password	77451ff3-79c4-4503-8e46-869c377b593a	1661608096354	My password	{"value":"h3DmmvuH7SWVPU071LlxtZfVuv3sdzJ3xlTYL1HcD0KO7c2jj3Bfst5dZOXa4s1WdnRlUd9lLnfXi4FAUsqJ4g==","salt":"B9UsxUsDWW02cYFUT66+CQ==","additionalParameters":{}}	{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}	10
 29581634-73ff-4c51-ac9e-47bf8b26b53c	\N	password	d188d062-5354-4547-928b-accc0591e01a	1661608125451	My password	{"value":"PRxnZ8Yod+WWjuxPcOa6TWlIxILZP7aOxpJW9esSQy+sha2yhKdGDjmutDNZaGwD5gDZyVFvTajUyWZGRx/8zQ==","salt":"aFuENIEy5wZpT+X2cfL4pA==","additionalParameters":{}}	{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}	10
+7c0ffdd9-f1ce-4954-a999-55fa43e8e895	\N	password	c858aea9-a744-4709-a169-9df329fe4d95	1661769832075	My password	{"value":"tQm0aWZ9gccw1xN6JuzOCH06qbW+xpLgryonp7cBq7/6vFENxTTE7Wi17fELcIsmwwZRTX45Ipt+D3OAqWIp/Q==","salt":"5EvuoYQ7PtlkHUOdT05YZw==","additionalParameters":{}}	{"hashIterations":27500,"algorithm":"pbkdf2-sha256","additionalParameters":{}}	10
 \.
 
 
@@ -2442,6 +2443,8 @@ COPY public.group_attribute (id, name, value, group_id) FROM stdin;
 --
 
 COPY public.group_role_mapping (role_id, group_id) FROM stdin;
+85e2770c-3c76-4325-87a0-e905817353bf	3e88da54-c351-47dd-84c2-435c3bccd3ef
+ab94ef07-a9c1-4d49-aadd-05fc58cfc176	444d2793-bdbc-4669-bf22-896d8ea78274
 \.
 
 
@@ -2482,6 +2485,8 @@ COPY public.idp_mapper_config (idp_mapper_id, value, name) FROM stdin;
 --
 
 COPY public.keycloak_group (id, name, parent_group, realm_id) FROM stdin;
+444d2793-bdbc-4669-bf22-896d8ea78274	student	 	b1fffe98-6c87-4c74-9607-fb4b4c6f837d
+3e88da54-c351-47dd-84c2-435c3bccd3ef	lecturer	 	b1fffe98-6c87-4c74-9607-fb4b4c6f837d
 \.
 
 
@@ -2569,6 +2574,8 @@ cdfa020d-483c-49a8-9634-fce08607cd0a	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	t	${ro
 62fce896-82ea-479e-843c-ee5d7c1ff3a6	df8f2cb2-62da-4d73-88a8-7a540b093cc6	t	${role_read-token}	read-token	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	df8f2cb2-62da-4d73-88a8-7a540b093cc6	\N
 7c446627-c000-48a7-917d-4ab618270cbc	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	f	${role_offline-access}	offline_access	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	\N	\N
 35e5e115-c817-4f3d-bceb-3caa0b647865	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	f	${role_uma_authorization}	uma_authorization	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	\N	\N
+85e2770c-3c76-4325-87a0-e905817353bf	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	f		lecturer	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	\N	\N
+ab94ef07-a9c1-4d49-aadd-05fc58cfc176	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	f		student	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	\N	\N
 \.
 
 
@@ -2941,7 +2948,6 @@ acd40983-572b-41c6-bf4a-f8cd0ae9773e	locality	user.attribute.locality
 5a995a7b-853c-4945-a757-b23d04010215	phone_number	claim.name
 5a995a7b-853c-4945-a757-b23d04010215	String	jsonType.label
 2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	true	multivalued
-2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	foo	user.attribute
 2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	true	access.token.claim
 2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	realm_access.roles	claim.name
 2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	String	jsonType.label
@@ -2970,6 +2976,8 @@ b2ff121f-64c8-4943-addb-b2b2d238f14b	true	access.token.claim
 3bda37c6-dbf5-47bd-b039-bc1f10e4494f	true	access.token.claim
 3bda37c6-dbf5-47bd-b039-bc1f10e4494f	locale	claim.name
 3bda37c6-dbf5-47bd-b039-bc1f10e4494f	String	jsonType.label
+2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	true	id.token.claim
+2e1d08d7-0a37-45bc-a759-9e8a12d60c2d	true	userinfo.token.claim
 \.
 
 
@@ -3127,7 +3135,7 @@ COPY public.redirect_uris (client_id, value) FROM stdin;
 cb8e206d-aed8-4b85-9cea-9bc7406a935c	/realms/Gamify-IT/account/*
 5811e4e5-a6f7-4aac-8def-8a53bd91600d	/realms/Gamify-IT/account/*
 740be63d-cd29-4660-892e-12ad842087d8	/admin/Gamify-IT/console/*
-8fb05d82-5c4d-40f3-9bb3-8439e9612224	http://localhost/*
+8fb05d82-5c4d-40f3-9bb3-8439e9612224	/*
 \.
 
 
@@ -3194,6 +3202,7 @@ COPY public.resource_scope (resource_id, scope_id) FROM stdin;
 --
 
 COPY public.resource_server (id, allow_rs_remote_mgmt, policy_enforce_mode, decision_strategy) FROM stdin;
+eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	f	0	1
 \.
 
 
@@ -3226,6 +3235,11 @@ COPY public.resource_server_resource (id, name, type, icon_uri, owner, resource_
 --
 
 COPY public.resource_server_scope (id, name, icon_uri, resource_server_id, display_name) FROM stdin;
+a4ebe3c3-468c-46fa-8cbf-e491f84cc968	manage	\N	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	\N
+a58d7c85-bd34-437e-92ee-c113170c63ff	view	\N	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	\N
+1e4b717b-24fe-44cd-9c82-8c8dadd7b611	manage-members	\N	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	\N
+ca8261d8-4759-48f7-a625-15e9a87317c7	view-members	\N	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	\N
+23992745-969c-43e2-b883-067eabe956fa	manage-membership	\N	eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	\N
 \.
 
 
@@ -3242,6 +3256,7 @@ COPY public.resource_uris (resource_id, value) FROM stdin;
 --
 
 COPY public.role_attribute (id, role_id, name, value) FROM stdin;
+dccd436d-009d-4b6c-9725-5dbfd794c994	ab94ef07-a9c1-4d49-aadd-05fc58cfc176	asdf	asdf
 \.
 
 
@@ -3295,6 +3310,7 @@ COPY public.user_entity (id, email, email_constraint, email_verified, enabled, f
 bbf1942a-aa33-486f-872f-80658bf9d274	\N	73d35c35-08d9-40a4-aa7f-633206d884f4	f	t	\N	\N	\N	1fe32191-f201-4478-b052-d3f2fd3c61d1	admin	1661607810285	\N	0
 77451ff3-79c4-4503-8e46-869c377b593a	\N	b1e584eb-a5bd-4c08-82f4-0a54034046dc	f	t	\N			b1fffe98-6c87-4c74-9607-fb4b4c6f837d	max	1661608081348	\N	0
 d188d062-5354-4547-928b-accc0591e01a	\N	65a75b81-2677-4267-805d-bfd042486f45	f	t	\N			b1fffe98-6c87-4c74-9607-fb4b4c6f837d	student	1661608112493	\N	0
+c858aea9-a744-4709-a169-9df329fe4d95	\N	c0881a28-a1b5-448d-a7b6-6a6c092bd586	f	t	\N			b1fffe98-6c87-4c74-9607-fb4b4c6f837d	lecturer	1661769820489	\N	0
 \.
 
 
@@ -3335,6 +3351,9 @@ COPY public.user_federation_provider (id, changed_sync_period, display_name, ful
 --
 
 COPY public.user_group_membership (group_id, user_id) FROM stdin;
+444d2793-bdbc-4669-bf22-896d8ea78274	77451ff3-79c4-4503-8e46-869c377b593a
+444d2793-bdbc-4669-bf22-896d8ea78274	d188d062-5354-4547-928b-accc0591e01a
+3e88da54-c351-47dd-84c2-435c3bccd3ef	c858aea9-a744-4709-a169-9df329fe4d95
 \.
 
 
@@ -3372,6 +3391,7 @@ d0c913a5-31bc-4787-93d2-8b557c20a240	bbf1942a-aa33-486f-872f-80658bf9d274
 ea7053a1-33c7-48af-93b4-6f0e6cbb7ad6	bbf1942a-aa33-486f-872f-80658bf9d274
 654ba425-fc4c-481b-b168-654e0c40c999	77451ff3-79c4-4503-8e46-869c377b593a
 654ba425-fc4c-481b-b168-654e0c40c999	d188d062-5354-4547-928b-accc0591e01a
+654ba425-fc4c-481b-b168-654e0c40c999	c858aea9-a744-4709-a169-9df329fe4d95
 \.
 
 
