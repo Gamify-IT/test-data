@@ -13911,7 +13911,7 @@ c62d4ec7-ca03-46e2-8aae-e9ac142b7428	9		c9a872f8-a350-479f-9066-58052c6c4113	15
 --
 
 COPY public.player_statistic (id, knowledge, user_id, username, current_area_id, course_id) FROM stdin;
-0dd7c785-1167-4c69-9856-7ad2d201f248	400	1	Maik	c8cbbe7e-e562-4f84-9e75-c4ae4b1a5855	15
+0dd7c785-1167-4c69-9856-7ad2d201f248	400	1	Maik	c8cbbe7e-e562-4f84-9e75-c4ae4b1a5855	1
 \.
 
 
