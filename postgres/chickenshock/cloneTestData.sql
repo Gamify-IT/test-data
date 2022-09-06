@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.4
--- Dumped by pg_dump version 14.4
+-- Dumped from database version 14.5
+-- Dumped by pg_dump version 14.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -25,7 +25,8 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.configuration (
-    id uuid NOT NULL
+    id uuid NOT NULL,
+    "time" integer NOT NULL
 );
 
 
@@ -145,8 +146,8 @@ ALTER TABLE public.round_result OWNER TO postgres;
 -- Data for Name: configuration; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.configuration (id) FROM stdin;
-70fcd00c-b67c-46f2-be73-961dc0bc8de1
+COPY public.configuration (id, "time") FROM stdin;
+70fcd00c-b67c-46f2-be73-961dc0bc8de1	50
 \.
 
 
