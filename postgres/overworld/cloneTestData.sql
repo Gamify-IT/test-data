@@ -1587,9 +1587,6 @@ d873d035-a426-4b4f-9ef0-228d2952c21e	\N	\N	7	9249d60d-7c1a-420b-bdf7-a346f2023ac
 38d04012-3ab7-4f42-a979-225cbd5f37da	\N	\N	5	9249d60d-7c1a-420b-bdf7-a346f2023ac1	1	\N
 b380a336-c40c-40ab-92fa-1152214f50a6	\N	\N	9	9249d60d-7c1a-420b-bdf7-a346f2023ac1	1	\N
 f17697dd-8656-49d3-a835-d3a8ddf3b6ba	\N	\N	6	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
-c4310355-a449-4408-8fe1-998f8941a748	70fcd00c-b67c-46f2-be73-961dc0bc8de1	CHICKENSHOCK	1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
-27ca6eaa-fdea-4833-917b-f330c2f91f0f	98a66aed-6d0e-4966-80f4-053cbb93fd54	FINITEQUIZ	2	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
-3648b70c-722c-412b-bff2-73b520ffdbf5	4f3af39f-1a0c-44f1-8a07-460786ab4fb1	CROSSWORDPUZZLE	3	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 37ffb3ea-785c-41ee-b610-f42c102da33b	449aa881-cba8-4d39-a6b1-fb08c9389191	CROSSWORDPUZZLE	3	ac193cda-be9f-423c-9c24-9ab7bbc807f4	2	\N
 41da12cd-ebcc-4583-84dc-9803767517c9	\N	\N	4	ac193cda-be9f-423c-9c24-9ab7bbc807f4	2	\N
 49c3aa48-3eec-4fa8-8a14-60f18cc3afb3	\N	\N	5	ac193cda-be9f-423c-9c24-9ab7bbc807f4	2	\N
@@ -1705,6 +1702,7 @@ ea999631-7d6e-4600-9b0b-9bc9ccaa9e67	\N	\N	1	3f7e9308-eabd-4f9a-8cc7-d43c3d84895
 b579adfe-ba00-4fe3-92bc-4b51bd36d445	\N	\N	12	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
 86e7c72b-9258-471a-b16c-2600d752400f	\N	\N	5	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
 9fd2a21b-652e-431d-9e56-7e73dcfe6bf1	\N	\N	11	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
+3648b70c-722c-412b-bff2-73b520ffdbf5	4f3af39f-1a0c-44f1-8a07-460786ab4fb1	CROSSWORDPUZZLE	3	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Crosswordpuzzle game
 ef6f3872-b074-4706-a189-8bc7fc15285a	\N	\N	7	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
 fdbb1d1b-d4e8-4dab-b95b-0881268b63d6	\N	\N	8	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
 8b9abc45-aa91-4cae-aabb-7f4bee1e6a41	\N	\N	9	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	2	\N
@@ -1829,6 +1827,8 @@ a100515b-5dbe-4fc4-904b-ec12c5063c34	\N	\N	7	58dfb291-eaa3-4ba2-a3b8-00a394a16d6
 6843c331-11ec-4c1d-aaab-22689dbe8988	\N	\N	8	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 4d1ebac9-b327-40a0-8291-f7049d367769	\N	\N	9	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 3405562d-c417-40b8-b99d-4c2a4bdc063a	\N	\N	10	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
+c4310355-a449-4408-8fe1-998f8941a748	70fcd00c-b67c-46f2-be73-961dc0bc8de1	CHICKENSHOCK	1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Chickenshock game
+27ca6eaa-fdea-4833-917b-f330c2f91f0f	98a66aed-6d0e-4966-80f4-053cbb93fd54	FINITEQUIZ	2	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Finitequiz game
 \.
 
 
@@ -1840,7 +1840,6 @@ COPY public.npc (id, index, area_id, course_id, description) FROM stdin;
 79a2a848-5540-4af2-ad8c-ae362ad956b8	9	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 aa1239c3-12bb-4f12-9db0-3a1d711361df	3	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 ac9384bc-f7ab-4b7b-8eba-fabf3d237bcf	7	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
-0eedc05c-8b53-49ba-9107-6de6c8d8a273	1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 4f83114f-909b-49d3-9b35-5455a0c4d307	6	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 5cd60ca7-1ea7-45ad-99dc-f1656a3665ac	4	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 8f5551e3-d6f2-4b21-8d97-54ef0351b38d	8	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
@@ -2237,6 +2236,7 @@ fab6d7fa-2bf0-42dc-89d5-d4480ecb935c	5	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 8fd4e7ad-75e9-4001-ac6a-c8ccd55210fb	7	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 afc7d6be-6b5b-42d3-ba12-da9e21cecd1a	3	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 1a607e1a-309f-4550-8abe-63b761951ffb	9	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
+0eedc05c-8b53-49ba-9107-6de6c8d8a273	1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Test npc
 \.
 
 
@@ -2245,6 +2245,8 @@ afc7d6be-6b5b-42d3-ba12-da9e21cecd1a	3	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 --
 
 COPY public.npc_text (npc_id, text) FROM stdin;
+0eedc05c-8b53-49ba-9107-6de6c8d8a273	Howdy!!
+0eedc05c-8b53-49ba-9107-6de6c8d8a273	Hello!
 \.
 
 
