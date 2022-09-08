@@ -24,109 +24,95 @@ SET default_table_access_method = heap;
 -- Name: area; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.area
-(
-    dtype       character varying(31)  NOT NULL,
-    id          uuid                   NOT NULL,
-    active      boolean                NOT NULL,
-    configured  boolean                NOT NULL,
-    index       integer                NOT NULL,
+CREATE TABLE public.area (
+    dtype character varying(31) NOT NULL,
+    id uuid NOT NULL,
+    active boolean NOT NULL,
+    configured boolean NOT NULL,
+    index integer NOT NULL,
     static_name character varying(255) NOT NULL,
-    topic_name  character varying(255),
-    course_id   integer,
-    world_id    uuid
+    topic_name character varying(255),
+    course_id integer,
+    world_id uuid
 );
 
 
-ALTER TABLE public.area
-    OWNER TO postgres;
+ALTER TABLE public.area OWNER TO postgres;
 
 --
 -- Name: area_dungeons; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.area_dungeons
-(
-    world_id    uuid NOT NULL,
+CREATE TABLE public.area_dungeons (
+    world_id uuid NOT NULL,
     dungeons_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.area_dungeons
-    OWNER TO postgres;
+ALTER TABLE public.area_dungeons OWNER TO postgres;
 
 --
 -- Name: area_minigame_tasks; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.area_minigame_tasks
-(
-    area_id           uuid NOT NULL,
+CREATE TABLE public.area_minigame_tasks (
+    area_id uuid NOT NULL,
     minigame_tasks_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.area_minigame_tasks
-    OWNER TO postgres;
+ALTER TABLE public.area_minigame_tasks OWNER TO postgres;
 
 --
 -- Name: area_npcs; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.area_npcs
-(
+CREATE TABLE public.area_npcs (
     area_id uuid NOT NULL,
     npcs_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.area_npcs
-    OWNER TO postgres;
+ALTER TABLE public.area_npcs OWNER TO postgres;
 
 --
 -- Name: course; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.course
-(
-    id          integer                NOT NULL,
-    active      boolean                NOT NULL,
+CREATE TABLE public.course (
+    id integer NOT NULL,
+    active boolean NOT NULL,
     course_name character varying(255) NOT NULL,
     description character varying(255),
-    semester    character varying(255)
+    semester character varying(255)
 );
 
 
-ALTER TABLE public.course
-    OWNER TO postgres;
+ALTER TABLE public.course OWNER TO postgres;
 
 --
 -- Name: course_player_statistics; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.course_player_statistics
-(
-    course_id            integer NOT NULL,
-    player_statistics_id uuid    NOT NULL
+CREATE TABLE public.course_player_statistics (
+    course_id integer NOT NULL,
+    player_statistics_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.course_player_statistics
-    OWNER TO postgres;
+ALTER TABLE public.course_player_statistics OWNER TO postgres;
 
 --
 -- Name: course_worlds; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.course_worlds
-(
+CREATE TABLE public.course_worlds (
     course_id integer NOT NULL,
-    worlds_id uuid    NOT NULL
+    worlds_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.course_worlds
-    OWNER TO postgres;
+ALTER TABLE public.course_worlds OWNER TO postgres;
 
 --
 -- Name: hibernate_sequence; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -140,234 +126,205 @@ CREATE SEQUENCE public.hibernate_sequence
     CACHE 1;
 
 
-ALTER TABLE public.hibernate_sequence
-    OWNER TO postgres;
+ALTER TABLE public.hibernate_sequence OWNER TO postgres;
 
 --
 -- Name: minigame_task; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.minigame_task
-(
-    id               uuid    NOT NULL,
+CREATE TABLE public.minigame_task (
+    id uuid NOT NULL,
     configuration_id uuid,
-    game             character varying(255),
-    index            integer NOT NULL,
-    area_id          uuid,
-    course_id        integer,
-    description      character varying(255)
+    game character varying(255),
+    index integer NOT NULL,
+    area_id uuid,
+    course_id integer,
+    description character varying(255)
 );
 
 
-ALTER TABLE public.minigame_task
-    OWNER TO postgres;
+ALTER TABLE public.minigame_task OWNER TO postgres;
 
 --
 -- Name: npc; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.npc
-(
-    id          uuid    NOT NULL,
-    index       integer NOT NULL,
-    area_id     uuid,
-    course_id   integer,
+CREATE TABLE public.npc (
+    id uuid NOT NULL,
+    index integer NOT NULL,
+    area_id uuid,
+    course_id integer,
     description character varying(255)
 );
 
 
-ALTER TABLE public.npc
-    OWNER TO postgres;
+ALTER TABLE public.npc OWNER TO postgres;
 
 --
 -- Name: npc_text; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.npc_text
-(
+CREATE TABLE public.npc_text (
     npc_id uuid NOT NULL,
-    text   character varying(255)
+    text character varying(255)
 );
 
 
-ALTER TABLE public.npc_text
-    OWNER TO postgres;
+ALTER TABLE public.npc_text OWNER TO postgres;
 
 --
 -- Name: player_statistic; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_statistic
-(
-    id              uuid                   NOT NULL,
-    knowledge       bigint                 NOT NULL,
-    user_id         character varying(255) NOT NULL,
-    username        character varying(255) NOT NULL,
-    course_id       integer,
+CREATE TABLE public.player_statistic (
+    id uuid NOT NULL,
+    knowledge bigint NOT NULL,
+    user_id character varying(255) NOT NULL,
+    username character varying(255) NOT NULL,
+    course_id integer,
     current_area_id uuid
 );
 
 
-ALTER TABLE public.player_statistic
-    OWNER TO postgres;
+ALTER TABLE public.player_statistic OWNER TO postgres;
 
 --
 -- Name: player_statistic_completed_dungeons; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_statistic_completed_dungeons
-(
-    player_statistic_id   uuid NOT NULL,
+CREATE TABLE public.player_statistic_completed_dungeons (
+    player_statistic_id uuid NOT NULL,
     completed_dungeons_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.player_statistic_completed_dungeons
-    OWNER TO postgres;
+ALTER TABLE public.player_statistic_completed_dungeons OWNER TO postgres;
 
 --
 -- Name: player_statistic_player_task_statistics; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_statistic_player_task_statistics
-(
-    player_statistic_id       uuid NOT NULL,
+CREATE TABLE public.player_statistic_player_task_statistics (
+    player_statistic_id uuid NOT NULL,
     player_task_statistics_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.player_statistic_player_task_statistics
-    OWNER TO postgres;
+ALTER TABLE public.player_statistic_player_task_statistics OWNER TO postgres;
 
 --
 -- Name: player_statistic_playernpcstatistics; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_statistic_playernpcstatistics
-(
-    player_statistic_id    uuid NOT NULL,
+CREATE TABLE public.player_statistic_playernpcstatistics (
+    player_statistic_id uuid NOT NULL,
     playernpcstatistics_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.player_statistic_playernpcstatistics
-    OWNER TO postgres;
+ALTER TABLE public.player_statistic_playernpcstatistics OWNER TO postgres;
 
 --
 -- Name: player_statistic_unlocked_areas; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_statistic_unlocked_areas
-(
+CREATE TABLE public.player_statistic_unlocked_areas (
     player_statistic_id uuid NOT NULL,
-    unlocked_areas_id   uuid NOT NULL
+    unlocked_areas_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.player_statistic_unlocked_areas
-    OWNER TO postgres;
+ALTER TABLE public.player_statistic_unlocked_areas OWNER TO postgres;
 
 --
 -- Name: player_task_action_log; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_task_action_log
-(
-    id                       uuid   NOT NULL,
-    configuration_id         uuid,
-    current_highscore        bigint NOT NULL,
-    date                     timestamp without time zone,
-    gained_knowledge         bigint NOT NULL,
-    game                     character varying(255),
-    score                    bigint NOT NULL,
-    course_id                integer,
+CREATE TABLE public.player_task_action_log (
+    id uuid NOT NULL,
+    configuration_id uuid,
+    current_highscore bigint NOT NULL,
+    date timestamp without time zone,
+    gained_knowledge bigint NOT NULL,
+    game character varying(255),
+    score bigint NOT NULL,
+    course_id integer,
     player_task_statistic_id uuid
 );
 
 
-ALTER TABLE public.player_task_action_log
-    OWNER TO postgres;
+ALTER TABLE public.player_task_action_log OWNER TO postgres;
 
 --
 -- Name: player_task_statistic; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_task_statistic
-(
-    id                  uuid    NOT NULL,
-    completed           boolean NOT NULL,
-    highscore           bigint  NOT NULL,
-    course_id           integer,
-    minigame_task_id    uuid,
+CREATE TABLE public.player_task_statistic (
+    id uuid NOT NULL,
+    completed boolean NOT NULL,
+    highscore bigint NOT NULL,
+    course_id integer,
+    minigame_task_id uuid,
     player_statistic_id uuid,
     CONSTRAINT player_task_statistic_highscore_check CHECK (((highscore <= 100) AND (highscore >= 0)))
 );
 
 
-ALTER TABLE public.player_task_statistic
-    OWNER TO postgres;
+ALTER TABLE public.player_task_statistic OWNER TO postgres;
 
 --
 -- Name: player_task_statistic_player_task_action_logs; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.player_task_statistic_player_task_action_logs
-(
-    player_task_statistic_id   uuid NOT NULL,
+CREATE TABLE public.player_task_statistic_player_task_action_logs (
+    player_task_statistic_id uuid NOT NULL,
     player_task_action_logs_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.player_task_statistic_player_task_action_logs
-    OWNER TO postgres;
+ALTER TABLE public.player_task_statistic_player_task_action_logs OWNER TO postgres;
 
 --
 -- Name: playernpcaction_log; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.playernpcaction_log
-(
-    id                    uuid   NOT NULL,
-    date                  timestamp without time zone,
-    gained_knowledge      bigint NOT NULL,
-    course_id             integer,
+CREATE TABLE public.playernpcaction_log (
+    id uuid NOT NULL,
+    date timestamp without time zone,
+    gained_knowledge bigint NOT NULL,
+    course_id integer,
     playernpcstatistic_id uuid
 );
 
 
-ALTER TABLE public.playernpcaction_log
-    OWNER TO postgres;
+ALTER TABLE public.playernpcaction_log OWNER TO postgres;
 
 --
 -- Name: playernpcstatistic; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.playernpcstatistic
-(
-    id                  uuid    NOT NULL,
-    completed           boolean NOT NULL,
-    course_id           integer,
-    npc_id              uuid,
+CREATE TABLE public.playernpcstatistic (
+    id uuid NOT NULL,
+    completed boolean NOT NULL,
+    course_id integer,
+    npc_id uuid,
     player_statistic_id uuid
 );
 
 
-ALTER TABLE public.playernpcstatistic
-    OWNER TO postgres;
+ALTER TABLE public.playernpcstatistic OWNER TO postgres;
 
 --
 -- Name: playernpcstatistic_playernpcaction_logs; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.playernpcstatistic_playernpcaction_logs
-(
-    playernpcstatistic_id   uuid NOT NULL,
+CREATE TABLE public.playernpcstatistic_playernpcaction_logs (
+    playernpcstatistic_id uuid NOT NULL,
     playernpcaction_logs_id uuid NOT NULL
 );
 
 
-ALTER TABLE public.playernpcstatistic_playernpcaction_logs
-    OWNER TO postgres;
+ALTER TABLE public.playernpcstatistic_playernpcaction_logs OWNER TO postgres;
 
 --
 -- Data for Name: area; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -1802,7 +1759,6 @@ c3666a5e-5cf1-4d1b-805c-18060631dd99	\N	\N	11	f0004dea-f619-4f42-a87a-bda3a9129a
 47f198d4-8c6f-4cd3-bfc8-4ac704bf57f7	\N	\N	2	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 ae957775-d5c9-4a2c-8bdd-a7d06a9d401a	\N	\N	1	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 68c638d4-f6c0-4f46-ac66-4e15a8607e01	\N	\N	3	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
-cdca2998-73ba-4625-bff3-9dcc801c61cb	\N	\N	4	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 81de5af8-49f8-497d-b926-8e8ca5956b18	\N	\N	5	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 5142dc65-5157-47a7-98e2-dd96a47383bc	\N	\N	12	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 29ac299f-43e0-43a3-ae4b-99534e44d490	\N	\N	11	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
@@ -1873,6 +1829,7 @@ a100515b-5dbe-4fc4-904b-ec12c5063c34	\N	\N	7	58dfb291-eaa3-4ba2-a3b8-00a394a16d6
 3405562d-c417-40b8-b99d-4c2a4bdc063a	\N	\N	10	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	2	\N
 c4310355-a449-4408-8fe1-998f8941a748	70fcd00c-b67c-46f2-be73-961dc0bc8de1	CHICKENSHOCK	1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Chickenshock game
 27ca6eaa-fdea-4833-917b-f330c2f91f0f	98a66aed-6d0e-4966-80f4-053cbb93fd54	FINITEQUIZ	2	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Finitequiz game
+cdca2998-73ba-4625-bff3-9dcc801c61cb	2e5d0718-fdfe-4738-87da-b55b6ed62a35	BUGFINDER	4	25912394-202e-42a9-a3e8-07dc2d4e6178	2	\N
 \.
 
 
@@ -2340,8 +2297,7 @@ COPY public.player_statistic_unlocked_areas (player_statistic_id, unlocked_areas
 -- Data for Name: player_task_action_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.player_task_action_log (id, configuration_id, current_highscore, date, gained_knowledge, game, score,
-                                    course_id, player_task_statistic_id) FROM stdin;
+COPY public.player_task_action_log (id, configuration_id, current_highscore, date, gained_knowledge, game, score, course_id, player_task_statistic_id) FROM stdin;
 \.
 
 
@@ -2349,8 +2305,7 @@ COPY public.player_task_action_log (id, configuration_id, current_highscore, dat
 -- Data for Name: player_task_statistic; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.player_task_statistic (id, completed, highscore, course_id, minigame_task_id,
-                                   player_statistic_id) FROM stdin;
+COPY public.player_task_statistic (id, completed, highscore, course_id, minigame_task_id, player_statistic_id) FROM stdin;
 \.
 
 
@@ -2622,7 +2577,7 @@ ALTER TABLE ONLY public.npc
 --
 
 ALTER TABLE ONLY public.player_task_statistic
-    ADD CONSTRAINT fk12orm06caiu19w8il8s2jsbdl FOREIGN KEY (minigame_task_id) REFERENCES public.minigame_task (id);
+    ADD CONSTRAINT fk12orm06caiu19w8il8s2jsbdl FOREIGN KEY (minigame_task_id) REFERENCES public.minigame_task(id);
 
 
 --
@@ -2630,7 +2585,7 @@ ALTER TABLE ONLY public.player_task_statistic
 --
 
 ALTER TABLE ONLY public.playernpcaction_log
-    ADD CONSTRAINT fk1f7o7i4v9w82cxrg0u14tgmym FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fk1f7o7i4v9w82cxrg0u14tgmym FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2638,7 +2593,7 @@ ALTER TABLE ONLY public.playernpcaction_log
 --
 
 ALTER TABLE ONLY public.player_task_statistic
-    ADD CONSTRAINT fk1okhn876e2a6uulje8e3fuuk5 FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fk1okhn876e2a6uulje8e3fuuk5 FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2646,7 +2601,7 @@ ALTER TABLE ONLY public.player_task_statistic
 --
 
 ALTER TABLE ONLY public.npc
-    ADD CONSTRAINT fk2t7w14eq7c78bfpcoufe8eyne FOREIGN KEY (area_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fk2t7w14eq7c78bfpcoufe8eyne FOREIGN KEY (area_id) REFERENCES public.area(id);
 
 
 --
@@ -2654,7 +2609,7 @@ ALTER TABLE ONLY public.npc
 --
 
 ALTER TABLE ONLY public.minigame_task
-    ADD CONSTRAINT fk42f1f9nt23vs2nl5hu90ol2a3 FOREIGN KEY (area_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fk42f1f9nt23vs2nl5hu90ol2a3 FOREIGN KEY (area_id) REFERENCES public.area(id);
 
 
 --
@@ -2662,7 +2617,7 @@ ALTER TABLE ONLY public.minigame_task
 --
 
 ALTER TABLE ONLY public.area_dungeons
-    ADD CONSTRAINT fk4g1gtrb4sbw3lejfd2uh6tyw8 FOREIGN KEY (dungeons_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fk4g1gtrb4sbw3lejfd2uh6tyw8 FOREIGN KEY (dungeons_id) REFERENCES public.area(id);
 
 
 --
@@ -2670,7 +2625,7 @@ ALTER TABLE ONLY public.area_dungeons
 --
 
 ALTER TABLE ONLY public.player_statistic_playernpcstatistics
-    ADD CONSTRAINT fk4jq025mftyeyep71t98trqf3l FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fk4jq025mftyeyep71t98trqf3l FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2678,7 +2633,7 @@ ALTER TABLE ONLY public.player_statistic_playernpcstatistics
 --
 
 ALTER TABLE ONLY public.playernpcstatistic
-    ADD CONSTRAINT fk58fhj6qipi15slyct040a2mt6 FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fk58fhj6qipi15slyct040a2mt6 FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2686,7 +2641,7 @@ ALTER TABLE ONLY public.playernpcstatistic
 --
 
 ALTER TABLE ONLY public.playernpcstatistic
-    ADD CONSTRAINT fk59ejtn8fulc26ymdqt5fb1mrr FOREIGN KEY (npc_id) REFERENCES public.npc (id);
+    ADD CONSTRAINT fk59ejtn8fulc26ymdqt5fb1mrr FOREIGN KEY (npc_id) REFERENCES public.npc(id);
 
 
 --
@@ -2694,7 +2649,7 @@ ALTER TABLE ONLY public.playernpcstatistic
 --
 
 ALTER TABLE ONLY public.course_player_statistics
-    ADD CONSTRAINT fk5y3ghl2hplxka6o877v7r6rsp FOREIGN KEY (player_statistics_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fk5y3ghl2hplxka6o877v7r6rsp FOREIGN KEY (player_statistics_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2702,7 +2657,7 @@ ALTER TABLE ONLY public.course_player_statistics
 --
 
 ALTER TABLE ONLY public.player_task_statistic_player_task_action_logs
-    ADD CONSTRAINT fk66lg03286gi0s62k5sg46dc90 FOREIGN KEY (player_task_action_logs_id) REFERENCES public.player_task_action_log (id);
+    ADD CONSTRAINT fk66lg03286gi0s62k5sg46dc90 FOREIGN KEY (player_task_action_logs_id) REFERENCES public.player_task_action_log(id);
 
 
 --
@@ -2710,7 +2665,7 @@ ALTER TABLE ONLY public.player_task_statistic_player_task_action_logs
 --
 
 ALTER TABLE ONLY public.area_minigame_tasks
-    ADD CONSTRAINT fk6os2w0w1v3euv2k1ngj30nhdr FOREIGN KEY (minigame_tasks_id) REFERENCES public.minigame_task (id);
+    ADD CONSTRAINT fk6os2w0w1v3euv2k1ngj30nhdr FOREIGN KEY (minigame_tasks_id) REFERENCES public.minigame_task(id);
 
 
 --
@@ -2718,7 +2673,7 @@ ALTER TABLE ONLY public.area_minigame_tasks
 --
 
 ALTER TABLE ONLY public.playernpcstatistic_playernpcaction_logs
-    ADD CONSTRAINT fk6r4drao88j3upygr9uj2d9187 FOREIGN KEY (playernpcstatistic_id) REFERENCES public.playernpcstatistic (id);
+    ADD CONSTRAINT fk6r4drao88j3upygr9uj2d9187 FOREIGN KEY (playernpcstatistic_id) REFERENCES public.playernpcstatistic(id);
 
 
 --
@@ -2726,7 +2681,7 @@ ALTER TABLE ONLY public.playernpcstatistic_playernpcaction_logs
 --
 
 ALTER TABLE ONLY public.player_task_action_log
-    ADD CONSTRAINT fk6uf4h7kq387mei941oweb32pl FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fk6uf4h7kq387mei941oweb32pl FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2734,7 +2689,7 @@ ALTER TABLE ONLY public.player_task_action_log
 --
 
 ALTER TABLE ONLY public.playernpcstatistic
-    ADD CONSTRAINT fk92jj8ujawdasvl90b57vs9gbb FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fk92jj8ujawdasvl90b57vs9gbb FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2742,7 +2697,7 @@ ALTER TABLE ONLY public.playernpcstatistic
 --
 
 ALTER TABLE ONLY public.area_minigame_tasks
-    ADD CONSTRAINT fk9urdfdsvqwbb3buy0dcdxws6k FOREIGN KEY (area_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fk9urdfdsvqwbb3buy0dcdxws6k FOREIGN KEY (area_id) REFERENCES public.area(id);
 
 
 --
@@ -2750,7 +2705,7 @@ ALTER TABLE ONLY public.area_minigame_tasks
 --
 
 ALTER TABLE ONLY public.player_task_statistic
-    ADD CONSTRAINT fk9y1c39d5bbnw5sh3oh3nm7wum FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fk9y1c39d5bbnw5sh3oh3nm7wum FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2758,7 +2713,7 @@ ALTER TABLE ONLY public.player_task_statistic
 --
 
 ALTER TABLE ONLY public.player_statistic_completed_dungeons
-    ADD CONSTRAINT fkb8e7inkwlcg3gk8tbymhsq6ul FOREIGN KEY (completed_dungeons_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fkb8e7inkwlcg3gk8tbymhsq6ul FOREIGN KEY (completed_dungeons_id) REFERENCES public.area(id);
 
 
 --
@@ -2766,7 +2721,7 @@ ALTER TABLE ONLY public.player_statistic_completed_dungeons
 --
 
 ALTER TABLE ONLY public.player_statistic_completed_dungeons
-    ADD CONSTRAINT fkbj119ecx4k8i5chsv8dv7fdfg FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fkbj119ecx4k8i5chsv8dv7fdfg FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2774,7 +2729,7 @@ ALTER TABLE ONLY public.player_statistic_completed_dungeons
 --
 
 ALTER TABLE ONLY public.player_statistic_unlocked_areas
-    ADD CONSTRAINT fkc8rmgmwe16v3mm33jsy9texyr FOREIGN KEY (unlocked_areas_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fkc8rmgmwe16v3mm33jsy9texyr FOREIGN KEY (unlocked_areas_id) REFERENCES public.area(id);
 
 
 --
@@ -2782,7 +2737,7 @@ ALTER TABLE ONLY public.player_statistic_unlocked_areas
 --
 
 ALTER TABLE ONLY public.player_task_action_log
-    ADD CONSTRAINT fkdlfw5fmcsknwuql63b86b45a1 FOREIGN KEY (player_task_statistic_id) REFERENCES public.player_task_statistic (id);
+    ADD CONSTRAINT fkdlfw5fmcsknwuql63b86b45a1 FOREIGN KEY (player_task_statistic_id) REFERENCES public.player_task_statistic(id);
 
 
 --
@@ -2790,7 +2745,7 @@ ALTER TABLE ONLY public.player_task_action_log
 --
 
 ALTER TABLE ONLY public.player_statistic
-    ADD CONSTRAINT fki1rwj9je6dm6avyhqh7lj7gjt FOREIGN KEY (current_area_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fki1rwj9je6dm6avyhqh7lj7gjt FOREIGN KEY (current_area_id) REFERENCES public.area(id);
 
 
 --
@@ -2798,7 +2753,7 @@ ALTER TABLE ONLY public.player_statistic
 --
 
 ALTER TABLE ONLY public.player_statistic_player_task_statistics
-    ADD CONSTRAINT fki7g5w4ig8hyiaqqjab7apf5xr FOREIGN KEY (player_task_statistics_id) REFERENCES public.player_task_statistic (id);
+    ADD CONSTRAINT fki7g5w4ig8hyiaqqjab7apf5xr FOREIGN KEY (player_task_statistics_id) REFERENCES public.player_task_statistic(id);
 
 
 --
@@ -2806,7 +2761,7 @@ ALTER TABLE ONLY public.player_statistic_player_task_statistics
 --
 
 ALTER TABLE ONLY public.player_statistic_player_task_statistics
-    ADD CONSTRAINT fkiv8joyn2x1r38uf5lhsminya8 FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fkiv8joyn2x1r38uf5lhsminya8 FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2814,7 +2769,7 @@ ALTER TABLE ONLY public.player_statistic_player_task_statistics
 --
 
 ALTER TABLE ONLY public.player_statistic
-    ADD CONSTRAINT fkivnttptny2j311jg06hmgsmbt FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkivnttptny2j311jg06hmgsmbt FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2822,7 +2777,7 @@ ALTER TABLE ONLY public.player_statistic
 --
 
 ALTER TABLE ONLY public.minigame_task
-    ADD CONSTRAINT fkjj5msugs6tsg0dpkyhg5rg3fj FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkjj5msugs6tsg0dpkyhg5rg3fj FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2830,7 +2785,7 @@ ALTER TABLE ONLY public.minigame_task
 --
 
 ALTER TABLE ONLY public.player_task_statistic_player_task_action_logs
-    ADD CONSTRAINT fkjm1bdvgey2qg1lfngx2abi0sm FOREIGN KEY (player_task_statistic_id) REFERENCES public.player_task_statistic (id);
+    ADD CONSTRAINT fkjm1bdvgey2qg1lfngx2abi0sm FOREIGN KEY (player_task_statistic_id) REFERENCES public.player_task_statistic(id);
 
 
 --
@@ -2838,7 +2793,7 @@ ALTER TABLE ONLY public.player_task_statistic_player_task_action_logs
 --
 
 ALTER TABLE ONLY public.area_npcs
-    ADD CONSTRAINT fkjrt31eq7amlbhumjf62fhexia FOREIGN KEY (area_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fkjrt31eq7amlbhumjf62fhexia FOREIGN KEY (area_id) REFERENCES public.area(id);
 
 
 --
@@ -2846,7 +2801,7 @@ ALTER TABLE ONLY public.area_npcs
 --
 
 ALTER TABLE ONLY public.playernpcstatistic_playernpcaction_logs
-    ADD CONSTRAINT fkjx0ula9op9ne4mub427p552m FOREIGN KEY (playernpcaction_logs_id) REFERENCES public.playernpcaction_log (id);
+    ADD CONSTRAINT fkjx0ula9op9ne4mub427p552m FOREIGN KEY (playernpcaction_logs_id) REFERENCES public.playernpcaction_log(id);
 
 
 --
@@ -2854,7 +2809,7 @@ ALTER TABLE ONLY public.playernpcstatistic_playernpcaction_logs
 --
 
 ALTER TABLE ONLY public.area
-    ADD CONSTRAINT fkke3rmfk70r7ot54sy24vw442q FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkke3rmfk70r7ot54sy24vw442q FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2862,7 +2817,7 @@ ALTER TABLE ONLY public.area
 --
 
 ALTER TABLE ONLY public.npc_text
-    ADD CONSTRAINT fkkgia5fha5jshcattp7t0iaelm FOREIGN KEY (npc_id) REFERENCES public.npc (id);
+    ADD CONSTRAINT fkkgia5fha5jshcattp7t0iaelm FOREIGN KEY (npc_id) REFERENCES public.npc(id);
 
 
 --
@@ -2870,7 +2825,7 @@ ALTER TABLE ONLY public.npc_text
 --
 
 ALTER TABLE ONLY public.player_statistic_playernpcstatistics
-    ADD CONSTRAINT fkkprti8utwbb5d6uug4cs63h9w FOREIGN KEY (playernpcstatistics_id) REFERENCES public.playernpcstatistic (id);
+    ADD CONSTRAINT fkkprti8utwbb5d6uug4cs63h9w FOREIGN KEY (playernpcstatistics_id) REFERENCES public.playernpcstatistic(id);
 
 
 --
@@ -2878,7 +2833,7 @@ ALTER TABLE ONLY public.player_statistic_playernpcstatistics
 --
 
 ALTER TABLE ONLY public.npc
-    ADD CONSTRAINT fkl4iy0bskn9q6bxtbbxfcydnj8 FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkl4iy0bskn9q6bxtbbxfcydnj8 FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2886,7 +2841,7 @@ ALTER TABLE ONLY public.npc
 --
 
 ALTER TABLE ONLY public.playernpcaction_log
-    ADD CONSTRAINT fkly1wr6ylc85twrxav2nhtnimd FOREIGN KEY (playernpcstatistic_id) REFERENCES public.playernpcstatistic (id);
+    ADD CONSTRAINT fkly1wr6ylc85twrxav2nhtnimd FOREIGN KEY (playernpcstatistic_id) REFERENCES public.playernpcstatistic(id);
 
 
 --
@@ -2894,7 +2849,7 @@ ALTER TABLE ONLY public.playernpcaction_log
 --
 
 ALTER TABLE ONLY public.area_dungeons
-    ADD CONSTRAINT fkn1r4adt88177xhsnx2jiripue FOREIGN KEY (world_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fkn1r4adt88177xhsnx2jiripue FOREIGN KEY (world_id) REFERENCES public.area(id);
 
 
 --
@@ -2902,7 +2857,7 @@ ALTER TABLE ONLY public.area_dungeons
 --
 
 ALTER TABLE ONLY public.course_worlds
-    ADD CONSTRAINT fknedx1yjlpvg4j57xkqefl1888 FOREIGN KEY (worlds_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fknedx1yjlpvg4j57xkqefl1888 FOREIGN KEY (worlds_id) REFERENCES public.area(id);
 
 
 --
@@ -2910,7 +2865,7 @@ ALTER TABLE ONLY public.course_worlds
 --
 
 ALTER TABLE ONLY public.course_player_statistics
-    ADD CONSTRAINT fkoklc3m3jittssm0fnyy97s6gq FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkoklc3m3jittssm0fnyy97s6gq FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
@@ -2918,7 +2873,7 @@ ALTER TABLE ONLY public.course_player_statistics
 --
 
 ALTER TABLE ONLY public.area
-    ADD CONSTRAINT fkp3yyg6h1oplrq0upvdw5acekg FOREIGN KEY (world_id) REFERENCES public.area (id);
+    ADD CONSTRAINT fkp3yyg6h1oplrq0upvdw5acekg FOREIGN KEY (world_id) REFERENCES public.area(id);
 
 
 --
@@ -2926,7 +2881,7 @@ ALTER TABLE ONLY public.area
 --
 
 ALTER TABLE ONLY public.player_statistic_unlocked_areas
-    ADD CONSTRAINT fkqkahskoqcupdnaf0moeg6mi5e FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic (id);
+    ADD CONSTRAINT fkqkahskoqcupdnaf0moeg6mi5e FOREIGN KEY (player_statistic_id) REFERENCES public.player_statistic(id);
 
 
 --
@@ -2934,7 +2889,7 @@ ALTER TABLE ONLY public.player_statistic_unlocked_areas
 --
 
 ALTER TABLE ONLY public.area_npcs
-    ADD CONSTRAINT fkqthws1lsesl8bgsq477p8gv4m FOREIGN KEY (npcs_id) REFERENCES public.npc (id);
+    ADD CONSTRAINT fkqthws1lsesl8bgsq477p8gv4m FOREIGN KEY (npcs_id) REFERENCES public.npc(id);
 
 
 --
@@ -2942,9 +2897,10 @@ ALTER TABLE ONLY public.area_npcs
 --
 
 ALTER TABLE ONLY public.course_worlds
-    ADD CONSTRAINT fkr7o1p1hsb0ngdf36ouqchb00w FOREIGN KEY (course_id) REFERENCES public.course (id);
+    ADD CONSTRAINT fkr7o1p1hsb0ngdf36ouqchb00w FOREIGN KEY (course_id) REFERENCES public.course(id);
 
 
 --
 -- PostgreSQL database dump complete
 --
+
