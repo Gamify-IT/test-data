@@ -28,7 +28,6 @@ CREATE TABLE public.area (
     dtype character varying(31) NOT NULL,
     id uuid NOT NULL,
     active boolean NOT NULL,
-    configured boolean NOT NULL,
     index integer NOT NULL,
     static_name character varying(255) NOT NULL,
     topic_name character varying(255),
@@ -330,47 +329,47 @@ ALTER TABLE public.playernpcstatistic_playernpcaction_logs OWNER TO postgres;
 -- Data for Name: area; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.area (dtype, id, active, configured, index, static_name, topic_name, course_id, world_id) FROM stdin;
-World	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	f	f	1	Blooming Savanna		1	\N
-Dungeon	c9a4d5bf-1c63-4580-9ce6-888e7ac308ee	f	f	1	dungeon1		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
-Dungeon	adcf84fc-5b67-4e7d-8dcf-dec636abab47	f	f	2	dungeon2		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
-Dungeon	ee0d859c-be18-4b8a-8e08-b417e79b786d	f	f	3	dungeon3		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
-Dungeon	c2fd389c-07ea-4e89-ba9a-795602c0fbe7	f	f	4	dungeon4		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
-World	b27f4217-616f-4a62-9ef4-8bc26cc6cd73	f	f	2	Sunny Beach		1	\N
-Dungeon	26be4da3-0c43-4aab-b783-856672e5427b	f	f	1	dungeon1		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
-Dungeon	351488de-5c35-4445-89a6-0217da326e5c	f	f	2	dungeon2		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
-Dungeon	e4b4fc3a-39a3-497b-8665-c474a21231d1	f	f	3	dungeon3		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
-Dungeon	e6104412-e53d-4dde-8667-94d7a0c8ec1f	f	f	4	dungeon4		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
-World	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe	f	f	3	Magic Forest		1	\N
-Dungeon	ea1e8d2c-0555-4054-817f-f63edfbdb650	f	f	1	dungeon1		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
-Dungeon	02e6ac42-f0de-40f3-8902-db0ba9aa9a56	f	f	2	dungeon2		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
-Dungeon	59616e13-3367-4ce1-bcae-3ba14a12d965	f	f	3	dungeon3		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
-Dungeon	b46d78f2-fce9-477e-af13-11f4903ee0b0	f	f	4	dungeon4		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
-World	8ce6bee0-0202-42a1-a944-438dd77309cb	f	f	4	Winter Wonder Land		1	\N
-Dungeon	277facf5-f177-43e8-886e-e9520f8a1e58	f	f	1	dungeon1		1	8ce6bee0-0202-42a1-a944-438dd77309cb
-Dungeon	081031cf-ce5a-4c4e-ad28-1556ac125cfe	f	f	2	dungeon2		1	8ce6bee0-0202-42a1-a944-438dd77309cb
-Dungeon	86f950f5-482f-4385-a2ce-052586067f5a	f	f	3	dungeon3		1	8ce6bee0-0202-42a1-a944-438dd77309cb
-Dungeon	9249d60d-7c1a-420b-bdf7-a346f2023ac1	f	f	4	dungeon4		1	8ce6bee0-0202-42a1-a944-438dd77309cb
-World	ac193cda-be9f-423c-9c24-9ab7bbc807f4	f	f	1	Blooming Savanna		2	\N
-Dungeon	8f783c88-580d-45bc-8d4f-6d84aa806a81	f	f	1	dungeon1		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
-Dungeon	3dfac9da-32af-4ce1-970e-9d84c9ec7ff4	f	f	2	dungeon2		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
-Dungeon	60f725e0-3b9a-4199-86ca-fc70c2692b0d	f	f	3	dungeon3		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
-Dungeon	df1d0f90-bdbb-45b2-a97d-d1439a49d2d4	f	f	4	dungeon4		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
-World	c250ac28-5424-44d2-ae5b-6c04dae71a0e	f	f	2	Sunny Beach		2	\N
-Dungeon	5c72b385-2b09-4a3e-b8d5-a0f3250e5a3c	f	f	1	dungeon1		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
-Dungeon	9be265af-972e-4a05-a5b3-8c916d0ba306	f	f	2	dungeon2		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
-Dungeon	425c7d41-de8a-4b74-a2d1-657e70eeb87f	f	f	3	dungeon3		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
-Dungeon	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	f	f	4	dungeon4		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
-World	a25b42bc-0576-4936-be2f-4eb8136417ce	f	f	3	Magic Forest		2	\N
-Dungeon	fa6db026-55f8-41ab-971f-b2ccc1bb9bb6	f	f	1	dungeon1		2	a25b42bc-0576-4936-be2f-4eb8136417ce
-Dungeon	faef09e7-1275-4854-88d3-a50aa90e0a47	f	f	2	dungeon2		2	a25b42bc-0576-4936-be2f-4eb8136417ce
-Dungeon	f0004dea-f619-4f42-a87a-bda3a9129aeb	f	f	3	dungeon3		2	a25b42bc-0576-4936-be2f-4eb8136417ce
-Dungeon	25912394-202e-42a9-a3e8-07dc2d4e6178	f	f	4	dungeon4		2	a25b42bc-0576-4936-be2f-4eb8136417ce
-World	1e92dcd9-2dc4-4fec-a953-e23b27b35e17	f	f	4	Winter Wonder Land		2	\N
-Dungeon	bf4ef706-2ed1-49c8-9e6f-23416b29cfd1	f	f	1	dungeon1		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
-Dungeon	6d65476b-9452-4438-8092-fcbf514081cd	f	f	2	dungeon2		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
-Dungeon	e9127edd-4638-4ce9-a929-b943a2d368fa	f	f	3	dungeon3		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
-Dungeon	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	f	f	4	dungeon4		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
+COPY public.area (dtype, id, active, index, static_name, topic_name, course_id, world_id) FROM stdin;
+World	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	f	1	Blooming Savanna		1	\N
+Dungeon	c9a4d5bf-1c63-4580-9ce6-888e7ac308ee	f	1	dungeon1		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
+Dungeon	adcf84fc-5b67-4e7d-8dcf-dec636abab47	f	2	dungeon2		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
+Dungeon	ee0d859c-be18-4b8a-8e08-b417e79b786d	f	3	dungeon3		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
+Dungeon	c2fd389c-07ea-4e89-ba9a-795602c0fbe7	f	4	dungeon4		1	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3
+World	b27f4217-616f-4a62-9ef4-8bc26cc6cd73	f	2	Sunny Beach		1	\N
+Dungeon	26be4da3-0c43-4aab-b783-856672e5427b	f	1	dungeon1		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
+Dungeon	351488de-5c35-4445-89a6-0217da326e5c	f	2	dungeon2		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
+Dungeon	e4b4fc3a-39a3-497b-8665-c474a21231d1	f	3	dungeon3		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
+Dungeon	e6104412-e53d-4dde-8667-94d7a0c8ec1f	f	4	dungeon4		1	b27f4217-616f-4a62-9ef4-8bc26cc6cd73
+World	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe	f	3	Magic Forest		1	\N
+Dungeon	ea1e8d2c-0555-4054-817f-f63edfbdb650	f	1	dungeon1		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
+Dungeon	02e6ac42-f0de-40f3-8902-db0ba9aa9a56	f	2	dungeon2		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
+Dungeon	59616e13-3367-4ce1-bcae-3ba14a12d965	f	3	dungeon3		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
+Dungeon	b46d78f2-fce9-477e-af13-11f4903ee0b0	f	4	dungeon4		1	8aa23d3b-f352-4bc4-9acc-45b83d4aa3fe
+World	8ce6bee0-0202-42a1-a944-438dd77309cb	f	4	Winter Wonder Land		1	\N
+Dungeon	277facf5-f177-43e8-886e-e9520f8a1e58	f	1	dungeon1		1	8ce6bee0-0202-42a1-a944-438dd77309cb
+Dungeon	081031cf-ce5a-4c4e-ad28-1556ac125cfe	f	2	dungeon2		1	8ce6bee0-0202-42a1-a944-438dd77309cb
+Dungeon	86f950f5-482f-4385-a2ce-052586067f5a	f	3	dungeon3		1	8ce6bee0-0202-42a1-a944-438dd77309cb
+Dungeon	9249d60d-7c1a-420b-bdf7-a346f2023ac1	f	4	dungeon4		1	8ce6bee0-0202-42a1-a944-438dd77309cb
+World	ac193cda-be9f-423c-9c24-9ab7bbc807f4	f	1	Blooming Savanna		2	\N
+Dungeon	8f783c88-580d-45bc-8d4f-6d84aa806a81	f	1	dungeon1		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
+Dungeon	3dfac9da-32af-4ce1-970e-9d84c9ec7ff4	f	2	dungeon2		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
+Dungeon	60f725e0-3b9a-4199-86ca-fc70c2692b0d	f	3	dungeon3		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
+Dungeon	df1d0f90-bdbb-45b2-a97d-d1439a49d2d4	f	4	dungeon4		2	ac193cda-be9f-423c-9c24-9ab7bbc807f4
+World	c250ac28-5424-44d2-ae5b-6c04dae71a0e	f	2	Sunny Beach		2	\N
+Dungeon	5c72b385-2b09-4a3e-b8d5-a0f3250e5a3c	f	1	dungeon1		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
+Dungeon	9be265af-972e-4a05-a5b3-8c916d0ba306	f	2	dungeon2		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
+Dungeon	425c7d41-de8a-4b74-a2d1-657e70eeb87f	f	3	dungeon3		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
+Dungeon	3f7e9308-eabd-4f9a-8cc7-d43c3d848958	f	4	dungeon4		2	c250ac28-5424-44d2-ae5b-6c04dae71a0e
+World	a25b42bc-0576-4936-be2f-4eb8136417ce	f	3	Magic Forest		2	\N
+Dungeon	fa6db026-55f8-41ab-971f-b2ccc1bb9bb6	f	1	dungeon1		2	a25b42bc-0576-4936-be2f-4eb8136417ce
+Dungeon	faef09e7-1275-4854-88d3-a50aa90e0a47	f	2	dungeon2		2	a25b42bc-0576-4936-be2f-4eb8136417ce
+Dungeon	f0004dea-f619-4f42-a87a-bda3a9129aeb	f	3	dungeon3		2	a25b42bc-0576-4936-be2f-4eb8136417ce
+Dungeon	25912394-202e-42a9-a3e8-07dc2d4e6178	f	4	dungeon4		2	a25b42bc-0576-4936-be2f-4eb8136417ce
+World	1e92dcd9-2dc4-4fec-a953-e23b27b35e17	f	4	Winter Wonder Land		2	\N
+Dungeon	bf4ef706-2ed1-49c8-9e6f-23416b29cfd1	f	1	dungeon1		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
+Dungeon	6d65476b-9452-4438-8092-fcbf514081cd	f	2	dungeon2		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
+Dungeon	e9127edd-4638-4ce9-a929-b943a2d368fa	f	3	dungeon3		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
+Dungeon	58dfb291-eaa3-4ba2-a3b8-00a394a16d60	f	4	dungeon4		2	1e92dcd9-2dc4-4fec-a953-e23b27b35e17
 \.
 
 
