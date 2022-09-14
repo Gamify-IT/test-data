@@ -21,3 +21,5 @@ for DATABASE_DUMP in $POSTGRES_SETUP; do
 
   psql --host "$HOST-db" --username "postgres" --file "postgres/$DATABASE_DUMP" postgres
 done
+
+echo "finishSetup"
