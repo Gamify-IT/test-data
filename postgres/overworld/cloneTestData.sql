@@ -1354,7 +1354,7 @@ COPY public.minigame_task (id, configuration_id, game, index, area_id, course_id
 1527f59d-7797-44bb-89eb-cce3ee73dfbb	\N	\N	6	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 07c15751-08ba-4f0e-a51d-3d64726e4428	\N	\N	8	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 74cd15ff-8fb9-4b30-9a74-bbe3735869a3	\N	\N	11	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
-8a221278-d341-4618-98f7-7abd1fa2e431	\N	\N	4	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
+8a221278-d341-4618-98f7-7abd1fa2e431	2e5d0718-fdfe-4738-87da-b55b6ed62a35	BUGFINDER	4	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	Bugfinder game
 67a5a78c-b824-42ee-adba-d0f82be8b371	\N	\N	10	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 1837a281-5fab-4f96-82d3-635bd3e78c96	\N	\N	12	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
 0770c651-0856-4158-b7ae-88f4878b5c17	\N	\N	5	2348aa33-1ffd-437d-a1c1-510ef6b1a8a3	1	\N
