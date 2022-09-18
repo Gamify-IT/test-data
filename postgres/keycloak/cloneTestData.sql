@@ -1663,8 +1663,8 @@ eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	t	f	realm-management	0	f	\N	\N	t	\N	f	b1fff
 df8f2cb2-62da-4d73-88a8-7a540b093cc6	t	f	broker	0	f	\N	\N	t	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_broker}	f	client-secret	\N	\N	\N	t	f	f	f
 740be63d-cd29-4660-892e-12ad842087d8	t	f	security-admin-console	0	t	\N	/admin/Gamify-IT/console/	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_security-admin-console}	f	client-secret	${authAdminUrl}	\N	\N	t	f	f	f
 8082411c-4141-4356-9a32-02ca2d393c64	t	f	admin-cli	0	t	\N	\N	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_admin-cli}	f	client-secret	\N	\N	\N	f	f	t	f
-8fb05d82-5c4d-40f3-9bb3-8439e9612224	t	t	game	0	t	\N	/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f	Client for the Gamify-IT game login	f	client-secret			\N	t	f	f	f
-cb8e206d-aed8-4b85-9cea-9bc7406a935c	t	f	account	0	t	\N	/realms/Gamify-IT/account/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_account}	f	client-secret	${authBaseUrl}		\N	t	f	t	f
+8fb05d82-5c4d-40f3-9bb3-8439e9612224	t	t	game	0	t	\N	/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f	Client for the Gamify-IT game login	f	client-secret			\N	t	f	t	f
+cb8e206d-aed8-4b85-9cea-9bc7406a935c	t	f	account	0	t	\N	/realms/Gamify-IT/account/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_account}	f	client-secret	${authBaseUrl}		\N	t	f	f	f
 \.
 
 
