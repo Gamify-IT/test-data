@@ -95,7 +95,7 @@ CREATE TABLE public.book (
     id uuid NOT NULL,
     description character varying(255),
     index integer NOT NULL,
-    text character varying(255),
+    text character varying(1000000),
     area_id uuid,
     course_id integer
 );
