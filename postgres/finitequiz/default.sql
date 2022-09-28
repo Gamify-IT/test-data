@@ -48,7 +48,7 @@ ALTER TABLE public.configuration_questions OWNER TO postgres;
 --
 
 CREATE TABLE public.game_result (
-    id bigint NOT NULL,
+    id uuid NOT NULL,
     configuration_asuuid uuid,
     played_time timestamp without time zone,
     player_id character varying(255),
@@ -64,7 +64,7 @@ ALTER TABLE public.game_result OWNER TO postgres;
 --
 
 CREATE TABLE public.game_result_correct_answered_questions (
-    game_result_id bigint NOT NULL,
+    game_result_id uuid NOT NULL,
     correct_answered_questions_id uuid NOT NULL
 );
 
@@ -76,7 +76,7 @@ ALTER TABLE public.game_result_correct_answered_questions OWNER TO postgres;
 --
 
 CREATE TABLE public.game_result_wrong_answered_questions (
-    game_result_id bigint NOT NULL,
+    game_result_id uuid NOT NULL,
     wrong_answered_questions_id uuid NOT NULL
 );
 
