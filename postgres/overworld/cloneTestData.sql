@@ -1112,13 +1112,13 @@ COPY public.course_worlds (course_id, worlds_id) FROM stdin;
 --
 
 COPY public.minigame_task (id, configuration_id, description, game, index, area_id, course_id) FROM stdin;
-7b6d3e74-cbd7-47ac-b9bb-5fa59ef26f1c	\N	\N	\N	5	acaa562e-1708-442a-83d1-65cd2b887282	1
+7b6d3e74-cbd7-47ac-b9bb-5fa59ef26f1c	\N	\N	CHICKENSHOCK	5	acaa562e-1708-442a-83d1-65cd2b887282	1
 66a9c60c-a41f-4c34-838a-a10bd1e69b95	\N	\N	\N	12	acaa562e-1708-442a-83d1-65cd2b887282	1
-8289a472-cddd-451d-ac5a-63b5060cae61	\N	\N	\N	6	acaa562e-1708-442a-83d1-65cd2b887282	1
+8289a472-cddd-451d-ac5a-63b5060cae61	\N	\N	FINITEQUIZ	6	acaa562e-1708-442a-83d1-65cd2b887282	1
 5a1b261d-9760-4ac9-8dcf-1731ac96e331	\N	\N	\N	11	acaa562e-1708-442a-83d1-65cd2b887282	1
-aa8446ce-3b09-4d8a-b756-4f77382a5c96	\N	\N	\N	7	acaa562e-1708-442a-83d1-65cd2b887282	1
-89aaf061-f43d-4264-94af-52eca34aeca7	\N	\N	\N	8	acaa562e-1708-442a-83d1-65cd2b887282	1
-2a00a92d-82c3-49cd-a034-ac14f70f24b3	\N	\N	\N	9	acaa562e-1708-442a-83d1-65cd2b887282	1
+aa8446ce-3b09-4d8a-b756-4f77382a5c96	\N	\N	CROSSWORDPUZZLE	7	acaa562e-1708-442a-83d1-65cd2b887282	1
+89aaf061-f43d-4264-94af-52eca34aeca7	\N	\N	BUGFINDER	8	acaa562e-1708-442a-83d1-65cd2b887282	1
+2a00a92d-82c3-49cd-a034-ac14f70f24b3	\N	\N	NONE	9	acaa562e-1708-442a-83d1-65cd2b887282	1
 790302d6-cd08-4d6b-a344-36c206f88316	\N	\N	\N	10	acaa562e-1708-442a-83d1-65cd2b887282	1
 05a286e1-e535-47d0-857d-5432ebc53779	\N	\N	\N	2	4223dc7c-7f3d-462b-9982-43e650f4bf0f	1
 cd932364-f01a-4ef2-bea0-31a8498c4695	\N	\N	\N	1	4223dc7c-7f3d-462b-9982-43e650f4bf0f	1
