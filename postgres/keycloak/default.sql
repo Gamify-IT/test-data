@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.4
--- Dumped by pg_dump version 14.4
+-- Dumped from database version 14.7
+-- Dumped by pg_dump version 14.7
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1665,6 +1665,7 @@ df8f2cb2-62da-4d73-88a8-7a540b093cc6	t	f	broker	0	f	\N	\N	t	\N	f	b1fffe98-6c87-4
 740be63d-cd29-4660-892e-12ad842087d8	t	f	security-admin-console	0	t	\N	/admin/Gamify-IT/console/	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_security-admin-console}	f	client-secret	${authAdminUrl}	\N	\N	t	f	f	f
 8082411c-4141-4356-9a32-02ca2d393c64	t	f	admin-cli	0	t	\N	\N	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	0	f	f	${client_admin-cli}	f	client-secret	\N	\N	\N	f	f	t	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	t	t	game	0	t	\N	/	f		f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f	Client for the Gamify-IT game login	f	client-secret			\N	t	f	f	f
+f043013d-a770-4400-ac31-9f97cf5beee1	t	t	fileserver	0	f	test-client-secret	\N	f	\N	f	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	openid-connect	-1	t	f		f	client-secret	\N		\N	t	f	f	f
 \.
 
 
@@ -1688,6 +1689,10 @@ cb8e206d-aed8-4b85-9cea-9bc7406a935c	+	post.logout.redirect.uris
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	true	backchannel.logout.session.required
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	false	backchannel.logout.revoke.offline.tokens
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	false	display.on.consent.screen
+f043013d-a770-4400-ac31-9f97cf5beee1	false	oauth2.device.authorization.grant.enabled
+f043013d-a770-4400-ac31-9f97cf5beee1	false	oidc.ciba.grant.enabled
+f043013d-a770-4400-ac31-9f97cf5beee1	true	backchannel.logout.session.required
+f043013d-a770-4400-ac31-9f97cf5beee1	false	backchannel.logout.revoke.offline.tokens
 \.
 
 
@@ -1925,6 +1930,15 @@ eb0ad8ca-7cbf-4f33-9710-7b0c31ba7635	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	1edf3b1e-fd4f-465b-8207-9242139b806f	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	752e8de6-366f-4545-8a08-b11d1ae514f2	t
+f043013d-a770-4400-ac31-9f97cf5beee1	035ff955-1590-4737-846e-8d279c463d6f	t
+f043013d-a770-4400-ac31-9f97cf5beee1	752e8de6-366f-4545-8a08-b11d1ae514f2	t
+f043013d-a770-4400-ac31-9f97cf5beee1	0e112aba-7593-4cb2-8e0b-c50683d92061	t
+f043013d-a770-4400-ac31-9f97cf5beee1	0693ee26-b2ed-4ed5-a8de-ebf41fd9b78b	t
+f043013d-a770-4400-ac31-9f97cf5beee1	def1ebe5-93f9-4f98-838e-4976aac26672	t
+f043013d-a770-4400-ac31-9f97cf5beee1	889d6a9c-3645-4003-b641-718f8dd493c7	f
+f043013d-a770-4400-ac31-9f97cf5beee1	a0d7dfad-6ae2-41c9-b5e1-3d9dcd707589	f
+f043013d-a770-4400-ac31-9f97cf5beee1	1edf3b1e-fd4f-465b-8207-9242139b806f	f
+f043013d-a770-4400-ac31-9f97cf5beee1	f90833df-a9ce-4f42-b567-bd91b38a9b37	f
 \.
 
 
@@ -2585,6 +2599,7 @@ ab94ef07-a9c1-4d49-aadd-05fc58cfc176	b1fffe98-6c87-4c74-9607-fb4b4c6f837d	f		stu
 
 COPY public.migration_model (id, version, update_time) FROM stdin;
 wo8ja	19.0.1	1661607808
+vbnut	19.0.3	1681159469
 \.
 
 
@@ -3136,6 +3151,7 @@ cb8e206d-aed8-4b85-9cea-9bc7406a935c	/realms/Gamify-IT/account/*
 5811e4e5-a6f7-4aac-8def-8a53bd91600d	/realms/Gamify-IT/account/*
 740be63d-cd29-4660-892e-12ad842087d8	/admin/Gamify-IT/console/*
 8fb05d82-5c4d-40f3-9bb3-8439e9612224	/*
+f043013d-a770-4400-ac31-9f97cf5beee1	*
 \.
 
 
@@ -3426,6 +3442,7 @@ COPY public.username_login_failure (realm_id, username, failed_login_not_before,
 COPY public.web_origins (client_id, value) FROM stdin;
 982e82ac-9f63-4105-86e3-e1f3afd3f0f4	+
 740be63d-cd29-4660-892e-12ad842087d8	+
+f043013d-a770-4400-ac31-9f97cf5beee1	*
 \.
 
 
