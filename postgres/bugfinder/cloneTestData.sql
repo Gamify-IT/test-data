@@ -110,7 +110,7 @@ ALTER TABLE public.solution_bugs OWNER TO postgres;
 
 CREATE TABLE public.word (
     id uuid NOT NULL,
-    word character varying(255)
+    word_content character varying(255)
 );
 
 
@@ -347,7 +347,7 @@ b6af7693-4b47-438c-a9b1-abac03069c15	d2142487-9a22-40d4-a36b-9c20262b7c06
 -- Data for Name: word; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.word (id, word) FROM stdin;
+COPY public.word (id, word_content) FROM stdin;
 d2a8bedf-c590-4a0b-b901-e0602903f9f5	 
 161ff240-5efa-4952-9dac-603afbf416b0	public
 b1873030-93f8-4c1e-b158-f415f3f360f1	 
