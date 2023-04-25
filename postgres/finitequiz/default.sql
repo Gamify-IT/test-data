@@ -91,7 +91,8 @@ CREATE TABLE public.game_result (
     played_time timestamp without time zone,
     player_id character varying(255),
     question_count integer NOT NULL,
-    score real NOT NULL
+    score real NOT NULL,
+    time_spent bigint NOT NULL
 );
 
 
@@ -217,7 +218,7 @@ COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin
 -- Data for Name: game_result; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.game_result (id, configuration_asuuid, played_time, player_id, question_count, score) FROM stdin;
+COPY public.game_result (id, configuration_asuuid, played_time, player_id, question_count, score, time_spent) FROM stdin;
 \.
 
 
