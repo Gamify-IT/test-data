@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.4
--- Dumped by pg_dump version 14.4
+-- Dumped from database version 14.7
+-- Dumped by pg_dump version 14.7
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -42,6 +42,44 @@ CREATE TABLE public.configuration_questions (
 
 
 ALTER TABLE public.configuration_questions OWNER TO postgres;
+
+--
+-- Name: databasechangelog; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.databasechangelog (
+    id character varying(255) NOT NULL,
+    author character varying(255) NOT NULL,
+    filename character varying(255) NOT NULL,
+    dateexecuted timestamp without time zone NOT NULL,
+    orderexecuted integer NOT NULL,
+    exectype character varying(10) NOT NULL,
+    md5sum character varying(35),
+    description character varying(255),
+    comments character varying(255),
+    tag character varying(255),
+    liquibase character varying(20),
+    contexts character varying(255),
+    labels character varying(255),
+    deployment_id character varying(10)
+);
+
+
+ALTER TABLE public.databasechangelog OWNER TO postgres;
+
+--
+-- Name: databasechangeloglock; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.databasechangeloglock (
+    id integer NOT NULL,
+    locked boolean NOT NULL,
+    lockgranted timestamp without time zone,
+    lockedby character varying(255)
+);
+
+
+ALTER TABLE public.databasechangeloglock OWNER TO postgres;
 
 --
 -- Name: game_result; Type: TABLE; Schema: public; Owner: postgres
@@ -159,6 +197,23 @@ COPY public.configuration_questions (configuration_id, questions_id) FROM stdin;
 
 
 --
+-- Data for Name: databasechangelog; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.databasechangelog (id, author, filename, dateexecuted, orderexecuted, exectype, md5sum, description, comments, tag, liquibase, contexts, labels, deployment_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin;
+1	f	\N	\N
+\.
+
+
+--
 -- Data for Name: game_result; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -247,6 +302,14 @@ ALTER TABLE ONLY public.configuration
 
 ALTER TABLE ONLY public.configuration_questions
     ADD CONSTRAINT configuration_questions_pkey PRIMARY KEY (configuration_id, questions_id);
+
+
+--
+-- Name: databasechangeloglock databasechangeloglock_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.databasechangeloglock
+    ADD CONSTRAINT databasechangeloglock_pkey PRIMARY KEY (id);
 
 
 --
