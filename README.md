@@ -27,6 +27,7 @@ In the docker-compose files there is always a section similar to this:
     pull_policy: always
     restart: on-failure
     environment:
+      DEPLOYMENT_NAME: dev
       POSTGRES_SETUP: >
         overworld/default.sql
         chickenshock/default.sql
