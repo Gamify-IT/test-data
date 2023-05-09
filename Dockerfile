@@ -11,5 +11,7 @@ RUN chmod 0600 /root/.pgpass
 COPY setup.sh ./
 RUN chmod +x setup.sh
 COPY postgres ./postgres
+ENV DEPLOYMENT_NAME=""
+
 
 CMD ["./setup.sh"]
