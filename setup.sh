@@ -3,6 +3,10 @@
 # make sure that ALL databases are available
 # exit on error
 set -e
+
+sed --in-place --expression "s|^|${DEPLOYMENT_NAME:+${DEPLOYMENT_NAME}-}|" \
+  --expression "s|^\(${DEPLOYMENT_NAME}-\)${DEPLOYMENT_NAME}-|\1|g" /root/.pgpass
+
 for DATABASE_DUMP in $POSTGRES_SETUP; do
   HOST=$(echo "$DATABASE_DUMP" | cut -d '/' -f 1)
   echo "[INFO] check availability of host $HOST"
