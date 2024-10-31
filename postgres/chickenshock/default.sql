@@ -147,7 +147,7 @@ ALTER TABLE public.round_result OWNER TO postgres;
 --
 
 COPY public.configuration (id, "time") FROM stdin;
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	'50'
+70fcd00c-b67c-46f2-be73-961dc0bc8de1	50
 \.
 
 
@@ -161,7 +161,6 @@ COPY public.configuration_questions (configuration_id, questions_id) FROM stdin;
 70fcd00c-b67c-46f2-be73-961dc0bc8de1	89fc0ef6-5ccc-497f-b838-8feea770db29
 70fcd00c-b67c-46f2-be73-961dc0bc8de1	83148f4b-2d7f-4c73-b5fe-51a002ef8473
 70fcd00c-b67c-46f2-be73-961dc0bc8de1	1b65c09d-4b2f-4bce-a76f-48e08ab57cd9
-70fcd00c-b67c-46f2-be73-961dc0bc8de1	f51b53aa-985a-4081-9db2-faf502338376
 \.
 
 
@@ -194,11 +193,11 @@ COPY public.game_result_wrong_answered_questions (game_result_id, wrong_answered
 --
 
 COPY public.question (id, right_answer, text) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	'8'       How many bits are in one byte?	                            
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	'10010'   What is the binary representation of the number 18?	        
-89fc0ef6-5ccc-497f-b838-8feea770db29	'27'      Which number is not a prime number?
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	'3'       What is the greatest common divisor of 27 and 42?
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	'string'  What variable type should be used for a persons name?
+cac917ea-c4c2-461e-92db-7a5497cd70e4	'8'       'How many bits are in one byte?'	                            
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	'10010'   'What is the binary representation of the number 18?'	        
+89fc0ef6-5ccc-497f-b838-8feea770db29	'27'      'Which number is not a prime number?'
+83148f4b-2d7f-4c73-b5fe-51a002ef8473	'3'       'What is the greatest common divisor of 27 and 42?'
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	'string'  'What variable type should be used for a persons name?'
 \.
 
 
@@ -207,14 +206,14 @@ a3c83db6-b224-41d3-a7f9-a56befa6e1e3	'10010'   What is the binary representation
 --
 
 COPY public.question_wrong_answers (question_id, wrong_answers) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	'2'
-cac917ea-c4c2-461e-92db-7a5497cd70e4	'4'
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	'1001'
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	'1111'
-89fc0ef6-5ccc-497f-b838-8feea770db29	'17'
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	'6'
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	'boolean'
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9    'integer'
+cac917ea-c4c2-461e-92db-7a5497cd70e4	2
+cac917ea-c4c2-461e-92db-7a5497cd70e4	4
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	1001
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	1111
+89fc0ef6-5ccc-497f-b838-8feea770db29	17
+83148f4b-2d7f-4c73-b5fe-51a002ef8473	6
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	boolean
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9    integer
 \.
 
 
