@@ -62,7 +62,7 @@ ALTER TABLE public.question OWNER TO postgres;
 --
 
 COPY public.configuration (id, name) FROM stdin;
-4f3af39f-1a0c-44f1-8a07-460786ab4fb1	general
+4f3af39f-1a0c-44f1-8a07-460786ab4fb1	tutorial
 599a6ad9-8776-4be9-b270-0e4e9785a003	uml
 \.
 
