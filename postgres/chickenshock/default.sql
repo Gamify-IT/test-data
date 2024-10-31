@@ -194,12 +194,11 @@ COPY public.game_result_wrong_answered_questions (game_result_id, wrong_answered
 --
 
 COPY public.question (id, right_answer, text) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	6	1 + 5
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	7	1 + 6
-89fc0ef6-5ccc-497f-b838-8feea770db29	x = 2	x + 2 = 4
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	3	9 / 3
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	110	88 + 22
-f51b53aa-985a-4081-9db2-faf502338376	6	2*3
+cac917ea-c4c2-461e-92db-7a5497cd70e4	How many bits are in one byte?	                            1 + 5
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	What is the binary representation of the number 18?	        1 + 6
+89fc0ef6-5ccc-497f-b838-8feea770db29	Which number is not a prime number?	                        27
+83148f4b-2d7f-4c73-b5fe-51a002ef8473	What is the greatest common divisor of 27 and 42?	        3
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	What variable type should be used for a persons name?	    string
 \.
 
 
@@ -208,20 +207,14 @@ f51b53aa-985a-4081-9db2-faf502338376	6	2*3
 --
 
 COPY public.question_wrong_answers (question_id, wrong_answers) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	1
 cac917ea-c4c2-461e-92db-7a5497cd70e4	2
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	8
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	9
-89fc0ef6-5ccc-497f-b838-8feea770db29	x = 4
+cac917ea-c4c2-461e-92db-7a5497cd70e4	4
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	1001
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	1111
+89fc0ef6-5ccc-497f-b838-8feea770db29	17
 83148f4b-2d7f-4c73-b5fe-51a002ef8473	6
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	100
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	130
-f51b53aa-985a-4081-9db2-faf502338376	34
-f51b53aa-985a-4081-9db2-faf502338376	23
-f51b53aa-985a-4081-9db2-faf502338376	4
-f51b53aa-985a-4081-9db2-faf502338376	5
-f51b53aa-985a-4081-9db2-faf502338376	7
-f51b53aa-985a-4081-9db2-faf502338376	3465
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	boolean
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9    integer
 \.
 
 
