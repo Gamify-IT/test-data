@@ -194,11 +194,11 @@ COPY public.game_result_wrong_answered_questions (game_result_id, wrong_answered
 --
 
 COPY public.question (id, right_answer, text) FROM stdin;
-cac917ea-c4c2-461e-92db-7a5497cd70e4	How many bits are in one byte?	                            1 + 5
-a3c83db6-b224-41d3-a7f9-a56befa6e1e3	What is the binary representation of the number 18?	        1 + 6
-89fc0ef6-5ccc-497f-b838-8feea770db29	Which number is not a prime number?	                        27
-83148f4b-2d7f-4c73-b5fe-51a002ef8473	What is the greatest common divisor of 27 and 42?	        3
-1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	What variable type should be used for a persons name?	    string
+cac917ea-c4c2-461e-92db-7a5497cd70e4	8       How many bits are in one byte?	                            
+a3c83db6-b224-41d3-a7f9-a56befa6e1e3	10010   What is the binary representation of the number 18?	        
+89fc0ef6-5ccc-497f-b838-8feea770db29	27      Which number is not a prime number?
+83148f4b-2d7f-4c73-b5fe-51a002ef8473	3       What is the greatest common divisor of 27 and 42?
+1b65c09d-4b2f-4bce-a76f-48e08ab57cd9	string  What variable type should be used for a persons name?
 \.
 
 
